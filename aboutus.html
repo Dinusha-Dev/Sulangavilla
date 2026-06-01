@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us — Sulanga Luxury Chalets</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   RESET & TOKENS
+============================================================ */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+
+:root{
+  --green-darker:#0e2114;
+  --green-dark:  #16331f;
+  --green:       #1f4a2c;
+  --green-btn:   #2c6b46;
+  --green-mid:   #3a8056;
+  --cream:       #f4f2ec;
+  --gray:        #ecebe6;
+  --text:        #26271f;
+  --muted:       #6f7168;
+  --gold:        #c9a96a;
+  --gold-soft:   #ddc593;
+  --sage:        #84996b;
+  --line:        rgba(255,255,255,.12);
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Jost',sans-serif;
+  --script:'Great Vibes',cursive;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--sans); color:var(--text); background:var(--cream);
+  line-height:1.65; font-weight:300; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+img{ display:block; max-width:100%; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+
+::selection{ background:var(--gold); color:#fff; }
+::-webkit-scrollbar{ width:11px; }
+::-webkit-scrollbar-track{ background:var(--gray); }
+::-webkit-scrollbar-thumb{ background:var(--green); border-radius:10px; border:2px solid var(--gray); }
+
+.container{ width:100%; max-width:1180px; margin:0 auto; padding:0 26px; }
+h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.14; }
+
+.eyebrow{ display:inline-block; font-family:var(--sans); text-transform:uppercase;
+  letter-spacing:.24em; font-size:11.5px; font-weight:500; color:var(--sage); margin-bottom:16px; }
+
+/* reveal */
+.reveal{ opacity:0; transform:translateY(30px); transition:opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal.d1{ transition-delay:.1s;} .reveal.d2{ transition-delay:.2s;}
+.reveal.d3{ transition-delay:.3s;} .reveal.d4{ transition-delay:.4s;}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn{ position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--sans); font-size:12.5px; font-weight:500; letter-spacing:.06em;
+  padding:14px 24px; border:none; cursor:pointer; border-radius:4px; transition:.45s var(--ease); }
+.btn span,.btn svg{ position:relative; z-index:2; }
+.btn svg{ width:14px; height:14px; }
+.btn-green{ background:var(--green-btn); color:#fff; box-shadow:0 12px 26px -14px rgba(35,92,58,.8); }
+.btn-green::before{ content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(120deg,var(--gold),var(--gold-soft));
+  transform:translateX(-101%); transition:transform .5s var(--ease); }
+.btn-green:hover{ transform:translateY(-3px); color:var(--green-darker); }
+.btn-green:hover::before{ transform:translateX(0); }
+
+/* ============================================================
+   TOP BAR
+============================================================ */
+.topbar{ background:#0a1810; color:rgba(255,255,255,.72); font-size:12.5px; }
+.topbar .container{ display:flex; align-items:center; justify-content:space-between; min-height:42px; flex-wrap:wrap; gap:6px; }
+.topbar-left{ display:flex; gap:26px; flex-wrap:wrap; }
+.topbar-left span{ display:inline-flex; align-items:center; gap:8px; }
+.topbar-left svg{ width:13px; height:13px; opacity:.8; }
+.topbar-right{ display:inline-flex; align-items:center; gap:5px; cursor:pointer; }
+.topbar-right svg{ width:11px; }
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav{ position:absolute; top:42px; left:0; right:0; z-index:50; transition:.4s var(--ease); }
+.nav .container{ display:flex; align-items:center; justify-content:space-between; min-height:78px; }
+.logo{ line-height:1; color:#fff; }
+.logo .ln1{ font-family:var(--script); font-size:34px; color:var(--gold-soft); }
+.logo .ln2{ display:block; font-size:8.5px; letter-spacing:.4em; text-transform:uppercase; opacity:.8; padding-left:4px; margin-top:-3px; }
+.nav-menu{ display:flex; align-items:center; gap:32px; }
+.nav-menu a{ color:#fff; font-size:13.5px; letter-spacing:.03em; position:relative; padding-bottom:6px; transition:.3s var(--ease); }
+.nav-menu a:hover{ color:var(--gold-soft); }
+.nav-menu a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--green-mid); transition:.35s var(--ease); }
+.nav-menu a:hover::after, .nav-menu a.active::after{ width:100%; }
+.nav-menu a.active{ color:#fff; }
+.nav.scrolled{ position:fixed; background:var(--green-darker); box-shadow:0 6px 30px rgba(0,0,0,.28); }
+.nav.scrolled .container{ min-height:66px; }
+.nav-toggle{ display:none; background:none; border:none; cursor:pointer; z-index:70; }
+.nav-toggle span{ display:block; width:25px; height:2px; background:#fff; margin:5px 0; transition:.3s; }
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{ position:relative; min-height:430px; display:flex; align-items:center; color:#fff;
+  padding-top:130px; padding-bottom:60px; }
+.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; animation:ken 22s ease-out infinite alternate; }
+@keyframes ken{ from{transform:scale(1);} to{transform:scale(1.1);} }
+.hero-bg::after{ content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(8,18,11,.85) 0%, rgba(8,18,11,.55) 45%, rgba(8,18,11,.2) 100%); }
+.hero .container{ position:relative; z-index:2; }
+.hero .eyebrow{ color:var(--sage); }
+.hero h1{ font-size:62px; font-weight:500; max-width:560px; }
+.hero p{ max-width:430px; font-size:15px; opacity:.9; margin-top:18px; line-height:1.8; }
+.h-anim{ opacity:0; transform:translateY(24px); animation:hUp 1s var(--ease) forwards; }
+.h-anim.a1{ animation-delay:.2s;} .h-anim.a2{ animation-delay:.4s;} .h-anim.a3{ animation-delay:.6s;}
+@keyframes hUp{ to{ opacity:1; transform:none; } }
+
+/* ============================================================
+   OUR STORY
+============================================================ */
+.story{ padding:90px 0; }
+.story-grid{ display:grid; grid-template-columns:1fr 1.1fr; gap:70px; align-items:center; }
+.story h2{ font-size:42px; font-weight:500; margin-bottom:24px; }
+.story p{ color:var(--muted); font-size:15px; line-height:1.85; margin-bottom:18px; max-width:430px; }
+.story .btn{ margin-top:14px; }
+.story-img{ position:relative; border-radius:8px; overflow:hidden; box-shadow:0 34px 64px -24px rgba(0,0,0,.4); }
+.story-img::after{ content:''; position:absolute; inset:0; border:1px solid rgba(255,255,255,.25); border-radius:8px; pointer-events:none; }
+.story-img img{ width:100%; height:430px; object-fit:cover; transition:transform 1.4s var(--ease); }
+.story-img:hover img{ transform:scale(1.06); }
+
+/* ============================================================
+   VALUES
+============================================================ */
+.values{ background:var(--gray); padding:64px 0; }
+.values-grid{ display:grid; grid-template-columns:repeat(4,1fr); }
+.value{ text-align:center; padding:0 30px; border-right:1px solid #d9d7cf; }
+.value:last-child{ border-right:none; }
+.value .ic{ width:64px; height:64px; border-radius:50%; background:#e0ddd2;
+  display:flex; align-items:center; justify-content:center; margin:0 auto 18px; transition:.4s var(--ease); }
+.value:hover .ic{ background:var(--green-btn); transform:translateY(-5px); }
+.value .ic svg{ width:26px; height:26px; color:var(--green); transition:.4s var(--ease); }
+.value:hover .ic svg{ color:#fff; }
+.value h4{ font-family:var(--serif); font-size:19px; font-weight:600; margin-bottom:9px; }
+.value p{ font-size:12.5px; color:var(--muted); line-height:1.55; }
+
+/* ============================================================
+   SULANGA EXPERIENCE
+============================================================ */
+.experience{ padding:90px 0; }
+.exp-grid{ display:grid; grid-template-columns:1.05fr 1fr; gap:60px; align-items:center; }
+.exp-collage{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:14px; height:430px; }
+.exp-collage .c1{ grid-row:1 / span 2; border-radius:8px; overflow:hidden; }
+.exp-collage .c2{ border-radius:8px; overflow:hidden; }
+.exp-collage .c3{ border-radius:8px; overflow:hidden; }
+.exp-collage img{ width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease); }
+.exp-collage > div:hover img{ transform:scale(1.08); }
+.exp-text h2{ font-size:40px; font-weight:500; margin-bottom:20px; }
+.exp-text > p{ color:var(--muted); font-size:14.5px; line-height:1.85; margin-bottom:24px; max-width:420px; }
+.exp-checks li{ display:flex; align-items:center; gap:11px; margin-bottom:13px; font-size:14px; color:#3a3c34; }
+.exp-checks svg{ width:20px; height:20px; color:var(--green-mid); flex-shrink:0; }
+.exp-text .btn{ margin-top:22px; }
+
+/* ============================================================
+   TESTIMONIAL
+============================================================ */
+.testi{ position:relative; background:var(--green-dark); color:#fff; padding:80px 0; overflow:hidden; }
+.testi::before{ content:''; position:absolute; inset:0; opacity:.06;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23fff' stroke-width='.5'/%3E%3C/svg%3E"); }
+.testi .container{ position:relative; z-index:2; text-align:center; max-width:760px; }
+.testi .qmark{ font-family:var(--serif); font-size:80px; color:var(--gold); line-height:.6; }
+.testi-track{ position:relative; min-height:140px; }
+.testi-slide{ display:none; }
+.testi-slide.active{ display:block; animation:fadeIn .7s var(--ease); }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+.testi blockquote{ font-family:var(--serif); font-size:25px; font-weight:500; line-height:1.5; margin:14px auto 26px; max-width:620px; }
+.testi-author{ display:flex; align-items:center; justify-content:center; gap:13px; }
+.testi-author img{ width:46px; height:46px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); }
+.testi-author span{ font-size:14px; letter-spacing:.02em; }
+.testi-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:5; width:46px; height:46px;
+  border-radius:50%; border:1px solid rgba(255,255,255,.3); background:transparent; color:#fff;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.4s var(--ease); }
+.testi-arrow:hover{ background:var(--gold); border-color:var(--gold); color:var(--green-dark); transform:translateY(-50%) scale(1.08); }
+.testi-arrow svg{ width:17px; height:17px; }
+.testi-arrow.prev{ left:5%; } .testi-arrow.next{ right:5%; }
+.testi-dots{ display:flex; gap:9px; justify-content:center; margin-top:30px; }
+.testi-dots button{ width:8px; height:8px; border-radius:50%; border:none; background:rgba(255,255,255,.35); cursor:pointer; transition:.3s; padding:0; }
+.testi-dots button.active{ background:var(--gold); width:22px; border-radius:5px; }
+
+/* ============================================================
+   NEWSLETTER
+============================================================ */
+.news{ background:var(--cream); padding:44px 0; }
+.news .container{ display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap; }
+.news-left{ display:flex; align-items:center; gap:18px; }
+.news-ic{ width:54px; height:54px; border-radius:50%; background:var(--green-btn);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.news-ic svg{ width:22px; height:22px; color:#fff; }
+.news-left b{ display:block; font-family:var(--serif); font-size:21px; font-weight:600; }
+.news-left small{ font-size:13px; color:var(--muted); }
+.news-form{ display:flex; gap:12px; flex:1; max-width:480px; min-width:280px; }
+.news-form input{ flex:1; border:1px solid #d8d4c8; border-radius:4px; padding:13px 16px;
+  font-family:var(--sans); font-size:14px; outline:none; background:#fff; transition:.3s; }
+.news-form input:focus{ border-color:var(--green-mid); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer{ background:var(--green-darker); color:rgba(255,255,255,.7); padding:64px 0 0; font-size:13.5px; }
+.footer-grid{ display:grid; grid-template-columns:1.7fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:46px; }
+.footer .logo{ display:inline-block; margin-bottom:16px; }
+.footer .logo .ln1{ font-family:var(--script); font-size:32px; color:var(--gold-soft); }
+.footer .logo .ln2{ display:block; font-size:8px; letter-spacing:.38em; text-transform:uppercase; opacity:.8; padding-left:3px; }
+.footer-about p{ line-height:1.75; max-width:280px; margin-bottom:20px; }
+.socials{ display:flex; gap:11px; }
+.socials a{ width:34px; height:34px; border-radius:50%; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; transition:.3s var(--ease); }
+.socials a:hover{ background:var(--green-btn); border-color:var(--green-btn); transform:translateY(-3px); }
+.socials svg{ width:15px; height:15px; }
+.footer h5{ font-family:var(--sans); color:#fff; font-size:12px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:20px; font-weight:500; }
+.footer-links li{ margin-bottom:12px; }
+.footer-links a:hover{ color:var(--gold-soft); }
+.footer-contact li{ display:flex; gap:11px; margin-bottom:13px; align-items:flex-start; }
+.footer-contact svg{ width:15px; height:15px; margin-top:3px; flex-shrink:0; color:var(--gold); }
+.footer-bottom{ border-top:1px solid var(--line); text-align:center; padding:20px 0; font-size:12px; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width:1024px){
+  .hero h1{ font-size:48px; }
+  .story-grid,.exp-grid{ grid-template-columns:1fr; gap:40px; }
+  .values-grid{ grid-template-columns:repeat(2,1fr); gap:40px 0; }
+  .value:nth-child(2){ border-right:none; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px){
+  .topbar-left{ gap:14px; font-size:11.5px; }
+  .nav-menu{ position:fixed; inset:0 -100% 0 auto; width:78%; background:var(--green-darker);
+    flex-direction:column; justify-content:center; gap:28px; transition:.4s var(--ease); z-index:60; padding:40px; }
+  .nav-menu.open{ right:0; } .nav-toggle{ display:block; }
+  .hero h1{ font-size:38px; }
+  .exp-collage{ height:340px; }
+  .testi-arrow.prev{ left:2%; } .testi-arrow.next{ right:2%; }
+  .testi blockquote{ font-size:21px; }
+  .footer-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:480px){
+  .hero h1{ font-size:32px; } .story h2,.exp-text h2{ font-size:30px; }
+  .values-grid{ grid-template-columns:1fr; }
+  .value{ border-right:none; }
+  .news .container{ flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Reservation: 0760730139</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Operations: 0772487000</span>
+    </div>
+    <div class="topbar-right"><span>USD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="homepage.html#about">The Villa</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-green" style="padding:13px 26px;"><span>Book now</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80" alt="Sulanga villa exterior" /></div>
+  <div class="container">
+    <span class="eyebrow h-anim a1">About Us</span>
+    <h1 class="h-anim a2">Where Luxury<br/>Meets Nature</h1>
+    <p class="h-anim a3">Sulanga is more than a stay — it's an experience of tranquility, sophistication and heartfelt hospitality, nestled in the breathtaking hills of Nuwara Eliya.</p>
+  </div>
+</header>
+
+<!-- OUR STORY -->
+<section class="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="reveal d1">Crafted for Comfort.<br/>Inspired by Nature.</h2>
+        <p class="reveal d2">Sulanga Luxury Chalets was created with a simple vision — to offer a sanctuary where modern luxury harmonizes seamlessly with the raw beauty of nature.</p>
+        <p class="reveal d2">From the architecture to the smallest details, every element is thoughtfully curated to provide an unforgettable escape for discerning travelers.</p>
+        <a href="#" class="btn btn-green reveal d3"><span>Discover Our Chalets</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="story-img reveal d2">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Sulanga chalet at dusk" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container">
+    <div class="values-grid">
+      <div class="value reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-9 1 5 1 9-1 12M11 20c5 0 9-4 9-9-5 0-8 2-9 6"/></svg></div>
+        <h4>In Harmony with Nature</h4>
+        <p>Surrounded by lush landscapes and majestic mountain views.</p>
+      </div>
+      <div class="value reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></div>
+        <h4>Luxury, Redefined</h4>
+        <p>Premium amenities and exquisite comfort in every stay.</p>
+      </div>
+      <div class="value reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Heartfelt Hospitality</h4>
+        <p>Personalized service that makes you feel truly at home.</p>
+      </div>
+      <div class="value reveal d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h4>Unforgettable Moments</h4>
+        <p>Create memories that will last a lifetime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SULANGA EXPERIENCE -->
+<section class="experience">
+  <div class="container">
+    <div class="exp-grid">
+      <div class="exp-collage reveal">
+        <div class="c1"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=80" alt="Living room" /></div>
+        <div class="c2"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&q=80" alt="Balcony sunset view" /></div>
+        <div class="c3"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=600&q=80" alt="Private pool at night" /></div>
+      </div>
+      <div class="exp-text">
+        <div class="eyebrow reveal">The Sulanga Experience</div>
+        <h2 class="reveal d1">A Retreat for the<br/>Soul and Senses</h2>
+        <p class="reveal d2">Wake up to misty mornings, unwind by your private pool, and soak in breathtaking views from your balcony. At Sulanga, every moment is designed to help you reconnect — with nature, with loved ones, and with yourself.</p>
+        <ul class="exp-checks">
+          <li class="reveal d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Private chalets with modern amenities</li>
+          <li class="reveal d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Stunning views of mountains and lake</li>
+          <li class="reveal d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Tranquil environment for relaxation</li>
+          <li class="reveal d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Ideal for couples, families &amp; groups</li>
+        </ul>
+        <a href="#" class="btn btn-green reveal d3"><span>Book Your Escape</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi">
+  <div class="container">
+    <div class="qmark">“</div>
+    <div class="testi-track">
+      <div class="testi-slide active">
+        <blockquote>Sulanga is pure magic! The views, the hospitality, and the attention to detail made our stay unforgettable.</blockquote>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Amanda Perera" />
+          <span>— Amanda Perera</span>
+        </div>
+      </div>
+      <div class="testi-slide">
+        <blockquote>An extraordinary escape. Every corner of the villa felt curated for comfort, and the privacy was beyond anything we expected.</blockquote>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="James Fernando" />
+          <span>— James Fernando</span>
+        </div>
+      </div>
+      <div class="testi-slide">
+        <blockquote>The misty mornings, the warm hospitality, the serenity — Sulanga gave us memories we'll treasure forever.</blockquote>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="Priya Mendis" />
+          <span>— Priya Mendis</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+  <button class="testi-arrow prev" id="testiPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="testi-arrow next" id="testiNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="news">
+  <div class="container">
+    <div class="news-left">
+      <div class="news-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+      <div><b>Stay Updated</b><small>Subscribe to get the latest offers and updates.</small></div>
+    </div>
+    <form class="news-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+      <input type="email" placeholder="Enter your email address" required />
+      <button type="submit" class="btn btn-green"><span>Subscribe</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+        <p>Nestled in the serene landscapes of Nuwara Eliya, Sulanga embodies the perfect blend of modern luxury and natural beauty.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.6-.8 2.5.3 2.2 2.6 4.8 5.6 5.9 1.4.5 2.4.4 3.2-.1.4-.2.9-.8 1-1.3.1-.4.1-.8 0-.9l-.6-.3z"/></svg></a>
+          <a href="#" aria-label="Tripadvisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 8.5c-2.3-1.5-5-2.3-8-2.3L1.5 9A4.5 4.5 0 0 0 6 16.5a4.5 4.5 0 0 0 3.6-1.8L12 17l2.4-2.3a4.5 4.5 0 0 0 3.6 1.8A4.5 4.5 0 0 0 22.5 9L20 6.2c-3 0-5.7.8-8 2.3zM6 14.5A2.5 2.5 0 1 1 6 9.5a2.5 2.5 0 0 1 0 5zm12 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM6 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="aboutus.html" class="active">About Us</a></li>
+          <li><a href="homepage.html#about">The Villa</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Useful Links</h5>
+        <ul class="footer-links">
+          <li><a href="#">Activities</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0760730139</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0772487000</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nuwara Eliya, Sri Lanka</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Sulanga Luxury Chalets. All rights reserved.</div>
+</footer>
+
+<script>
+/* sticky nav */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+/* mobile menu */
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+/* testimonial carousel */
+const slides = document.querySelectorAll('.testi-slide');
+const dotsWrap = document.getElementById('testiDots');
+let cur = 0;
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  if(i === 0) d.classList.add('active');
+  d.addEventListener('click', () => go(i));
+  dotsWrap.appendChild(d);
+});
+const dots = dotsWrap.querySelectorAll('button');
+function go(i){
+  slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+  cur = (i + slides.length) % slides.length;
+  slides[cur].classList.add('active'); dots[cur].classList.add('active');
+}
+document.getElementById('testiNext').addEventListener('click', () => go(cur + 1));
+document.getElementById('testiPrev').addEventListener('click', () => go(cur - 1));
+let auto = setInterval(() => go(cur + 1), 6000);
+document.querySelector('.testi').addEventListener('mouseenter', () => clearInterval(auto));
+document.querySelector('.testi').addEventListener('mouseleave', () => auto = setInterval(() => go(cur + 1), 6000));
+
+/* scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

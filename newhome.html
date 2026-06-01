@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sulanga Luxury Chalets — Your Private Luxury Escape in Nuwara Eliya</title>
+    <meta name="description"
+        content="An exclusive entire-villa retreat in Nuwara Eliya with breathtaking mountain views, a private pool, and refined modern elegance." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+   RESET & TOKENS
+ ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green-darker: #05120a;
+            --green-dark: #081d11;
+            --green-card: #0b2214;
+            --green: #1f4a2c;
+            --green-btn: #1f4a2c;
+            --green-mid: #3a8055;
+            --cream: #f7f6f2;
+            --gray: #e2e4e0;
+            --text: #26271f;
+            --muted: #6f7168;
+            --gold: #c9a96a;
+            --gold-soft: #ddc593;
+            --sage: #84996b;
+            --line: rgba(255, 255, 255, .12);
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Jost', sans-serif;
+            --script: 'Great Vibes', cursive;
+            --ease: cubic-bezier(.22, .61, .36, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 10px;
+            border: 2px solid var(--cream);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--serif);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--sans);
+            text-transform: uppercase;
+            letter-spacing: .24em;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        /* reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s var(--ease), transform 1s var(--ease);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal.d1 {
+            transition-delay: .1s;
+        }
+
+        .reveal.d2 {
+            transition-delay: .2s;
+        }
+
+        .reveal.d3 {
+            transition-delay: .3s;
+        }
+
+        .reveal.d4 {
+            transition-delay: .4s;
+        }
+
+        /* ===== Preloader ===== */
+        #preload {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--green-darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity .8s var(--ease), visibility .8s;
+        }
+
+        #preload.done {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #preload .pl-name {
+            font-family: var(--script);
+            font-size: 56px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: plIn 1s var(--ease) forwards;
+        }
+
+        #preload .pl-line {
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            margin-top: 14px;
+            animation: plLine 1.6s var(--ease) .3s forwards;
+        }
+
+        @keyframes plIn {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes plLine {
+            to {
+                width: 180px;
+            }
+        }
+
+        /* ============================================================
+   BUTTONS
+ ============================================================ */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: .06em;
+            padding: 14px 26px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: .35s var(--ease);
+        }
+
+        .btn span,
+        .btn svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn svg {
+            width: 15px;
+            height: 15px;
+            transition: transform .3s;
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-green:hover {
+            background: var(--green-mid);
+            transform: translateY(-2px);
+        }
+
+        .btn-green:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--green-darker);
+            border: 1px solid #fff;
+        }
+
+        .btn-white:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .btn-white:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: rgba(8, 29, 17, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ============================================================
+   TOP BAR
+ ============================================================ */
+        .topbar {
+            background: var(--green-darker);
+            color: rgba(255, 255, 255, .75);
+            font-size: 12.5px;
+        }
+
+        .topbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 42px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .topbar-left {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .topbar-left span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topbar-left svg {
+            width: 13px;
+            height: 13px;
+            opacity: .85;
+        }
+
+        .topbar-right {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .topbar-right svg {
+            width: 11px;
+        }
+
+        /* ============================================================
+   NAV
+ ============================================================ */
+        .nav {
+            position: absolute;
+            top: 42px;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: .4s var(--ease);
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 78px;
+        }
+
+        .logo {
+            line-height: 1;
+            color: #fff;
+        }
+
+        .logo .ln1 {
+            font-family: var(--script);
+            font-size: 36px;
+            color: var(--gold-soft);
+        }
+
+        .logo .ln2 {
+            display: block;
+            font-size: 8.5px;
+            letter-spacing: .4em;
+            text-transform: uppercase;
+            opacity: .85;
+            padding-left: 4px;
+            margin-top: -3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            font-size: 13.5px;
+            letter-spacing: .03em;
+            position: relative;
+            padding-bottom: 6px;
+            transition: .3s var(--ease);
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold-soft);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green-mid);
+            transition: .35s var(--ease);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a.active {
+            color: var(--gold-soft);
+        }
+
+        .nav.scrolled {
+            position: fixed;
+            top: 0;
+            background: var(--green-darker);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, .28);
+        }
+
+        .nav.scrolled .container {
+            min-height: 66px;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+        }
+
+        .btn-nav svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 70;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            margin: 5px 0;
+            transition: .3s;
+        }
+
+        /* ============================================================
+   HERO & BOOKING BAR
+ ============================================================ */
+        .hero {
+            position: relative;
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding-top: 130px;
+            padding-bottom: 120px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: ken 22s ease-out infinite alternate;
+        }
+
+        @keyframes ken {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(5, 18, 10, 0.85) 0%, rgba(5, 18, 10, 0.55) 48%, rgba(5, 18, 10, 0.18) 100%);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 580px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 106, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: .9;
+            line-height: 1.75;
+            margin-bottom: 28px;
+        }
+
+        .hero-cursive {
+            font-family: var(--script);
+            font-size: 36px;
+            color: var(--gold-soft);
+        }
+
+        .h-anim {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: hUp 1s var(--ease) forwards;
+        }
+
+        .h-anim.a1 {
+            animation-delay: .2s;
+        }
+
+        .h-anim.a2 {
+            animation-delay: .4s;
+        }
+
+        .h-anim.a3 {
+            animation-delay: .6s;
+        }
+
+        .h-anim.a4 {
+            animation-delay: .8s;
+        }
+
+        @keyframes hUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Floating Booking Bar */
+        .booking-bar-container {
+            position: relative;
+            z-index: 100;
+            margin-top: -64px;
+        }
+
+        .booking-bar {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 24px;
+            box-shadow: 0 20px 50px rgba(8, 29, 17, 0.12);
+            border: 1px solid #e2e4e0;
+        }
+
+        .booking-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .booking-field {
+            border-right: 1px solid #e2e4e0;
+            padding: 8px 16px 8px 8px;
+            transition: all 0.3s var(--ease);
+            border-radius: 6px;
+        }
+
+        .booking-field:nth-child(3) {
+            border-right: none;
+        }
+
+        .booking-field:hover {
+            background: rgba(201, 169, 106, 0.05);
+        }
+
+        .booking-field label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .booking-field .field-inner {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .booking-field input,
+        .booking-field select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-family: var(--sans);
+            font-size: 14.5px;
+            color: var(--text);
+            font-weight: 500;
+            padding: 6px 28px 6px 0;
+            cursor: pointer;
+        }
+
+        .booking-field select {
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .booking-field svg {
+            position: absolute;
+            right: 0;
+            width: 17px;
+            height: 17px;
+            color: var(--muted);
+            pointer-events: none;
+        }
+
+        .booking-row .btn {
+            padding: 16px 30px;
+            font-size: 14px;
+        }
+
+        .booking-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 14px;
+            border-top: 1px solid #f0eee7;
+            padding-top: 12px;
+        }
+
+        .booking-note svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* ============================================================
+   ABOUT SULANGA
+ ============================================================ */
+        .about {
+            padding: 120px 0 80px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 44px;
+            margin-bottom: 24px;
+            color: var(--green-darker);
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 15.5px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-text .btn {
+            margin-top: 10px;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .about-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--gold-soft);
+            border-radius: 12px;
+            pointer-events: none;
+            transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(8, 29, 17, 0.08);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            transition: transform 1.2s var(--ease);
+        }
+
+        .about-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-img-wrap:hover::after {
+            transform: scale(0.97);
+            border-color: var(--gold);
+        }
+
+        /* ============================================================
+   THE SULANGA EXPERIENCE — 6 columns, centered, minimal
+ ============================================================ */
+        .experience {
+            padding: 80px 0;
+            background: var(--green-dark);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .experience-head {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 54px;
+        }
+
+        .experience-head h2 {
+            font-size: 40px;
+            color: #fff;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .exp-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 28px 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease);
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 169, 106, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .exp-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .exp-card:hover .exp-ic {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--gold-soft);
+            transform: scale(1.06);
+        }
+
+        .exp-card:hover .exp-ic svg {
+            color: var(--gold-soft);
+        }
+
+        .exp-ic {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: all 0.4s var(--ease);
+        }
+
+        .exp-ic svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold-soft);
+            transition: all 0.4s var(--ease);
+        }
+
+        .exp-card h3 {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .exp-card p {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+   EXPLORE VILLA
+ ============================================================ */
+        .explore {
+            padding: 90px 0;
+        }
+
+        .explore-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .explore-head h2 {
+            font-size: 40px;
+            color: var(--green-darker);
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .explore-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 220px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(8, 29, 17, 0.04);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .explore-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(8, 29, 17, 0.12);
+        }
+
+        .explore-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s var(--ease);
+        }
+
+        .explore-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .explore-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 18, 10, 0.45) 0%, rgba(5, 18, 10, 0) 60%);
+            pointer-events: none;
+            transition: opacity 0.4s var(--ease);
+            z-index: 1;
+        }
+
+        .explore-card:hover::after {
+            background: linear-gradient(to top, rgba(5, 18, 10, 0.55) 0%, rgba(5, 18, 10, 0) 60%);
+        }
+
+        .explore-card-pill {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(5, 18, 10, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            white-space: nowrap;
+            transition: all 0.4s var(--ease);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 2;
+        }
+
+        .explore-card-pill svg {
+            width: 16px;
+            height: 16px;
+            color: #fff;
+            stroke-width: 1.8px;
+        }
+
+        .explore-card-pill span {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .explore-card:hover .explore-card-pill {
+            transform: scale(1.04);
+            background: var(--green-darker);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn-gallery {
+            background: #fff;
+            border: 1px solid #d8d4c8;
+            color: var(--text);
+            border-radius: 8px;
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.35s var(--ease);
+            cursor: pointer;
+        }
+
+        .btn-gallery:hover {
+            background: var(--cream);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-gallery svg {
+            width: 14px;
+            height: 14px;
+            color: var(--text);
+        }
+
+        /* ============================================================
+   HIGHLIGHT CARD
+ ============================================================ */
+        .highlight {
+            padding: 50px 0 80px;
+        }
+
+        .highlight-card {
+            background: var(--green-card);
+            border-radius: 20px;
+            overflow: hidden;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+        }
+
+        .hl-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .hl-img-col {
+            height: 100%;
+            min-height: 360px;
+        }
+
+        .hl-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .hl-text-col {
+            padding: 12px 12px 12px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hl-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .hl-left-part h2 {
+            font-size: 38px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            font-family: var(--serif);
+            line-height: 1.15;
+        }
+
+        .hl-left-part p {
+            font-size: 14.5px;
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .hl-content-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 36px;
+            align-items: stretch;
+        }
+
+        .hl-left-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hl-right-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .hl-pricing-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .hl-pricing-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hl-pricing-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .hl-pricing-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hl-pricing-details {
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .hl-price-value {
+            font-size: 24px;
+            font-weight: 600;
+            font-family: var(--serif);
+        }
+
+        .hl-price-approx {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hl-price-unit {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-left: 2px;
+        }
+
+        .hl-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hl-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hl-features svg {
+            width: 15px;
+            height: 15px;
+            color: #fff;
+        }
+
+        .btn-hl-avail {
+            background: #fff;
+            color: var(--green-darker);
+            border: 1px solid #fff;
+            width: 100%;
+            padding: 15px 22px;
+            border-radius: 8px;
+            font-family: var(--sans);
+            font-size: 14.5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-hl-avail:hover {
+            background: var(--cream);
+            border-color: var(--cream);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-hl-avail svg {
+            width: 16px;
+            height: 16px;
+            color: var(--green-darker);
+            transition: transform 0.3s;
+        }
+
+        .btn-hl-avail:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ============================================================
+   TESTIMONIALS
+ ============================================================ */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--green-dark);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .testimonials-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .testimonials-head .eyebrow {
+            color: var(--gold);
+        }
+
+        .testimonials-head h2 {
+            font-size: 40px;
+            color: #fff;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .carousel-controls button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .carousel-controls button:hover {
+            background: var(--green-mid);
+            color: #fff;
+            border-color: var(--green-mid);
+        }
+
+        .carousel-controls button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .testimonials-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .testi-card {
+            flex: 0 0 calc(33.333% - 16px);
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 34px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .testi-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 169, 106, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote-ic {
+            font-family: var(--serif);
+            font-size: 64px;
+            color: var(--gold);
+            line-height: 0.2;
+            margin-bottom: 18px;
+        }
+
+        .testi-card blockquote {
+            font-style: italic;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 18px;
+        }
+
+        .testi-author img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .author-location {
+            display: block;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ============================================================
+   CTA BANNER
+ ============================================================ */
+        .cta {
+            position: relative;
+            color: #fff;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cta-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(5, 18, 10, 0.7) 0%, rgba(5, 18, 10, 0.85) 100%);
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 520px;
+            align-items: center;
+        }
+
+        .cta-image-col {
+            position: relative;
+            padding: 50px 0 50px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-image-frame {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            max-width: 440px;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+        }
+
+        .cta-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s var(--ease);
+        }
+
+        .cta-image-frame:hover img {
+            transform: scale(1.04);
+        }
+
+        .cta-image-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(201, 169, 106, 0.3);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .cta-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(5, 18, 10, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .cta-image-badge svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold);
+        }
+
+        .cta-image-badge span {
+            font-size: 13px;
+            font-weight: 500;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-text-col {
+            padding: 60px 40px 60px 50px;
+            text-align: left;
+        }
+
+        .cta-gold-line {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .cta-script {
+            font-family: var(--script);
+            font-size: 54px;
+            color: var(--gold-soft);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .cta-heading {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .cta-desc {
+            font-size: 15.5px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.75;
+            max-width: 420px;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons .btn-white {
+            padding: 16px 32px;
+            font-size: 14px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons .btn-cta-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: var(--sans);
+            letter-spacing: 0.04em;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.35s var(--ease);
+        }
+
+        .cta-buttons .btn-cta-outline:hover {
+            border-color: var(--gold-soft);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .cta-buttons .btn-cta-outline svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .cta-trust {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .cta-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-trust-item svg {
+            width: 15px;
+            height: 15px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .cta-inner {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .cta-image-col {
+                padding: 50px 24px 0;
+            }
+
+            .cta-image-frame {
+                max-width: 100%;
+                aspect-ratio: 16 / 9;
+            }
+
+            .cta-text-col {
+                padding: 50px 24px 60px;
+                text-align: center;
+            }
+
+            .cta-gold-line {
+                margin: 0 auto 28px;
+            }
+
+            .cta-desc {
+                margin: 0 auto 36px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .cta-trust {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-script {
+                font-size: 40px;
+            }
+
+            .cta-heading {
+                font-size: 36px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-buttons .btn-white,
+            .cta-buttons .btn-cta-outline {
+                justify-content: center;
+            }
+
+            .cta-trust {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+            }
+        }
+
+        /* ============================================================
+   FOOTER
+ ============================================================ */
+        .footer {
+            background: #05120a;
+            color: rgba(255, 255, 255, .65);
+            padding: 70px 0 0;
+            font-size: 13px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+
+        .footer .logo {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .footer .logo .ln1 {
+            font-family: var(--script);
+            font-size: 34px;
+            color: var(--gold-soft);
+        }
+
+        .footer .logo .ln2 {
+            display: block;
+            font-size: 8px;
+            letter-spacing: .38em;
+            text-transform: uppercase;
+            opacity: .8;
+            padding-left: 3px;
+        }
+
+        .footer-about p {
+            line-height: 1.7;
+            max-width: 260px;
+            margin-bottom: 22px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 11px;
+        }
+
+        .socials a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s var(--ease);
+        }
+
+        .socials a:hover {
+            background: var(--green-mid);
+            border-color: var(--green-mid);
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        .socials svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .footer h5 {
+            font-family: var(--sans);
+            color: #fff;
+            font-size: 11.5px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links li {
+            margin-bottom: 11px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-soft);
+        }
+
+        .footer-links a.active {
+            color: var(--gold-soft);
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 11px;
+            margin-bottom: 13px;
+            align-items: flex-start;
+        }
+
+        .footer-contact svg {
+            width: 15px;
+            height: 15px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            color: var(--gold);
+        }
+
+        .newsletter p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            padding: 12px 14px;
+            font-family: var(--sans);
+            font-size: 13px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, .4);
+        }
+
+        .newsletter-form button {
+            background: #fff;
+            border: none;
+            width: 44px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gold);
+        }
+
+        .newsletter-form button svg {
+            width: 15px;
+            height: 15px;
+            color: var(--green-darker);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--line);
+            text-align: center;
+            padding: 22px 0;
+            font-size: 12px;
+        }
+
+        /* ============================================================
+   RESPONSIVE
+ ============================================================ */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .booking-row {
+                grid-template-columns: 1fr 1fr auto;
+            }
+
+            .booking-field:nth-child(2) {
+                border-right: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .exp-card {
+                padding: 24px 14px;
+            }
+
+            .explore-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hl-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hl-text-col {
+                padding: 24px 12px 12px 12px;
+            }
+
+            .testi-card {
+                flex: 0 0 calc(50% - 12px);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar-left {
+                gap: 14px;
+                font-size: 11.5px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                inset: 0 -100% 0 auto;
+                width: 80%;
+                background: var(--green-darker);
+                flex-direction: column;
+                justify-content: center;
+                gap: 26px;
+                transition: .4s var(--ease);
+                z-index: 60;
+                padding: 40px;
+            }
+
+            .nav-menu.open {
+                right: 0;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .booking-row {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-field {
+                border-right: none;
+                padding-right: 0;
+            }
+
+            .hl-content-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .hl-right-part {
+                height: auto;
+                gap: 20px;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .explore-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hl-text-col {
+                padding: 34px 26px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testi-card {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .explore-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preload">
+        <div class="pl-name">Sulanga</div>
+        <div class="pl-line"></div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-10 5L2 7" />
+                    </svg> rtissera@hotmail.com</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg> For Reservations: 076 0730 139</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg> For Operations: 077 2487 000</span>
+            </div>
+            <div class="topbar-right"><span>USD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                </svg></div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury
+                    Chalets</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="homepage.html" class="active">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#about">The Villa</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+            <a href="booking.html" class="btn btn-green btn-nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                <span>Book Now</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg"><img
+                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80"
+                alt="Sulanga Luxury Chalet at Dusk" /></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge h-anim a1">Entire Villa &bull; Max 6 Guests</span>
+                <h1 class="h-anim a2">Your Private<br>Luxury Escape in<br>Nuwara Eliya</h1>
+                <p class="h-anim a3">A single, exclusive villa surrounded by mountains, crafted for privacy, comfort and
+                    unforgettable moments—only for you.</p>
+                <div class="hero-cursive h-anim a4">Unwind. Reconnect. Belong.</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BOOKING BAR -->
+    <div class="booking-bar-container">
+        <div class="container">
+            <div class="booking-bar">
+                <form class="booking-row" onsubmit="event.preventDefault(); window.location.href='booking.html';">
+                    <div class="booking-field">
+                        <label for="checkin">Check-in</label>
+                        <div class="field-inner">
+                            <input type="text" placeholder="Select date" onfocus="this.type='date'; this.showPicker?.()"
+                                onblur="if(!this.value) this.type='text'" id="checkin" />
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="booking-field">
+                        <label for="checkout">Check-out</label>
+                        <div class="field-inner">
+                            <input type="text" placeholder="Select date" onfocus="this.type='date'; this.showPicker?.()"
+                                onblur="if(!this.value) this.type='text'" id="checkout" />
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="booking-field">
+                        <label for="guests">Guests</label>
+                        <div class="field-inner">
+                            <select id="guests">
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                            </select>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="booking-action">
+                        <button type="submit" class="btn btn-green">
+                            <span>Check Availability</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <div class="booking-note">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#3a8055;">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <path d="m22 4-10 10.01-3-3" />
+                    </svg>
+                    Entire villa booking only. You will have the whole villa to yourselves.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SULANGA -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <span class="eyebrow">About Sulanga</span>
+                    <h2>A Private Sanctuary<br>in the Heart of Nature</h2>
+                    <p>Nestled in the misty highlands of Nuwara Eliya, Sulanga is a standalone luxury villa designed for
+                        those who
+                        value privacy, elegance and serenity.</p>
+                    <p>From breathtaking mountain views to a private infinity pool, every detail is thoughtfully curated
+                        to create
+                        a seamless and indulgent stay.</p>
+                    <a href="aboutus.html" class="btn btn-green">
+                        <span>Discover The Villa</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="about-img-wrap reveal d2">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80"
+                            alt="Daytime Chalet Exterior" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SULANGA EXPERIENCE -->
+    <section class="experience">
+        <div class="container">
+            <div class="experience-head reveal">
+                <span class="eyebrow">The Sulanga Experience</span>
+                <h2>One Villa. Complete Privacy. Pure Luxury.</h2>
+            </div>
+            <div class="experience-grid">
+                <!-- Card 1 -->
+                <div class="exp-card reveal">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0" />
+                        </svg></div>
+                    <h3>Private Infinity Pool</h3>
+                    <p>All yours, all the time.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="exp-card reveal d1">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg></div>
+                    <h3>Panoramic Views</h3>
+                    <p>Breathtaking mountains from every angle.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="exp-card reveal d2">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M9 3v18M3 9h18M3 15h18" />
+                        </svg></div>
+                    <h3>Modern Interiors</h3>
+                    <p>Elegant spaces with luxurious comfort.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="exp-card reveal d3">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M4 21V10h16v11M4 10l8-6 8 6M9 21v-6h6v6" />
+                        </svg></div>
+                    <h3>Balcony & Terrace</h3>
+                    <p>Relax and take in the cool highland breeze.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="exp-card reveal d4">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg></div>
+                    <h3>Peaceful Surroundings</h3>
+                    <p>Nature, calm and complete tranquility.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="exp-card reveal d4">
+                    <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg></div>
+                    <h3>Complete Privacy</h3>
+                    <p>Entire villa, exclusively yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SULANGA -->
+    <section class="explore">
+        <div class="container">
+            <div class="explore-head reveal">
+                <div>
+                    <span class="eyebrow">Explore Sulanga</span>
+                    <h2>Inside the Villa</h2>
+                </div>
+                <a href="gallery.html" class="btn-gallery">
+                    <span>View Full Gallery</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="9" />
+                        <rect x="14" y="3" width="7" height="5" />
+                        <rect x="14" y="12" width="7" height="9" />
+                        <rect x="3" y="16" width="7" height="5" />
+                    </svg>
+                </a>
+            </div>
+            <div class="explore-grid">
+                <!-- Item 1 -->
+                <a href="gallery.html?filter=exterior" class="explore-card reveal">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+                        alt="Exterior" />
+                    <div class="explore-card-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span>Exterior</span>
+                    </div>
+                </a>
+                <!-- Item 2 -->
+                <a href="gallery.html?filter=interior" class="explore-card reveal d1">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80"
+                        alt="Living Area" />
+                    <div class="explore-card-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6M3 18h18" />
+                        </svg>
+                        <span>Living Area</span>
+                    </div>
+                </a>
+                <!-- Item 3 -->
+                <a href="gallery.html?filter=rooms" class="explore-card reveal d2">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+                        alt="Bedroom" />
+                    <div class="explore-card-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="9" y1="9" x2="15" y2="9" />
+                            <line x1="9" y1="13" x2="15" y2="13" />
+                            <line x1="9" y1="17" x2="13" y2="17" />
+                        </svg>
+                        <span>Bedroom</span>
+                    </div>
+                </a>
+                <!-- Item 4 -->
+                <a href="gallery.html?filter=pool" class="explore-card reveal d3">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=600&q=80"
+                        alt="Private Pool" />
+                    <div class="explore-card-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0" />
+                        </svg>
+                        <span>Private Pool</span>
+                    </div>
+                </a>
+                <!-- Item 5 -->
+                <a href="gallery.html?filter=views" class="explore-card reveal d4">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80"
+                        alt="Mountain Views" />
+                    <div class="explore-card-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                        </svg>
+                        <span>Mountain Views</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT -->
+    <section class="highlight">
+        <div class="container">
+            <div class="highlight-card reveal">
+                <div class="hl-grid">
+                    <div class="hl-img-col">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
+                            alt="Sulanga Luxury Villa landscape" />
+                    </div>
+                    <div class="hl-text-col">
+                        <div class="hl-content-grid">
+                            <div class="hl-left-part">
+                                <div>
+                                    <span class="hl-badge">Entire Villa</span>
+                                    <h2>Sulanga Luxury Villa</h2>
+                                    <p>A private hideaway in Nuwara Eliya with modern amenities, a private pool,
+                                        spacious living areas and panoramic mountain views.</p>
+                                </div>
+
+                                <div class="hl-pricing-list">
+                                    <div class="hl-pricing-item">
+                                        <div class="hl-pricing-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8">
+                                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                                <path d="M16 2v4M8 2v4M3 10h18" />
+                                            </svg>
+                                        </div>
+                                        <div class="hl-pricing-details">
+                                            <span class="hl-price-value">LKR 150,000</span> <span
+                                                class="hl-price-unit">/ night</span>
+                                        </div>
+                                    </div>
+                                    <div class="hl-pricing-item">
+                                        <div class="hl-pricing-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8">
+                                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="hl-pricing-details">
+                                            <span class="hl-price-approx">Approx. USD 500</span> <span
+                                                class="hl-price-unit">/ night</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hl-right-part">
+                                <ul class="hl-features">
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> Max 6 Guests</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> 2 Bedrooms</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> Private Infinity Pool</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> Full Kitchen</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> High-Speed Wi-Fi</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg> Free Parking</li>
+                                </ul>
+
+                                <a href="booking.html" class="btn-hl-avail">
+                                    <span>Check Availability</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M13 6l6 6-6 6" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUEST EXPERIENCES -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-head reveal">
+                <div>
+                    <span class="eyebrow">Guest Experiences</span>
+                    <h2>Loved by Our Guests</h2>
+                </div>
+                <div class="carousel-controls">
+                    <button id="testiPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg></button>
+                    <button id="testiNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+
+            <div class="testimonials-wrapper">
+                <div class="testimonials-grid" id="testiTrack">
+                    <!-- Testimonial 1 -->
+                    <div class="testi-card reveal">
+                        <div class="quote-ic">&ldquo;</div>
+                        <blockquote>The villa is breathtaking! The views, the privacy and the pool made our stay
+                            unforgettable.
+                            Perfect getaway for couples.</blockquote>
+                        <div class="testi-author">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                                alt="Rachel & David" />
+                            <div>
+                                <span class="author-name">Rachel & David</span>
+                                <span class="author-location">Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testi-card reveal d1">
+                        <div class="quote-ic">&ldquo;</div>
+                        <blockquote>From the moment we arrived, everything was perfect. The villa is even more beautiful
+                            in person.
+                            Highly recommend Sulanga!</blockquote>
+                        <div class="testi-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                                alt="Tharindu & Family" />
+                            <div>
+                                <span class="author-name">Tharindu & Family</span>
+                                <span class="author-location">Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testi-card reveal d2">
+                        <div class="quote-ic">&ldquo;</div>
+                        <blockquote>Peaceful, luxurious and private—exactly what we needed. We will definitely be coming
+                            back!
+                        </blockquote>
+                        <div class="testi-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+                                alt="Ananya & Friends" />
+                            <div>
+                                <span class="author-name">Ananya & Friends</span>
+                                <span class="author-location">Singapore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-bg">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80"
+                alt="Mountain landscape" />
+        </div>
+        <div class="container">
+            <div class="cta-inner">
+                <div class="cta-image-col reveal">
+                    <div class="cta-image-frame">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80"
+                            alt="Sulanga Villa at dusk" />
+                        <div class="cta-image-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <span>Top Rated Villa in Nuwara Eliya</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-text-col">
+                    <div class="cta-gold-line reveal"></div>
+                    <div class="cta-script reveal d1">Ready to</div>
+                    <h2 class="cta-heading reveal d1">Escape?</h2>
+                    <p class="cta-desc reveal d2">Book the entire villa and enjoy a private, luxurious retreat
+                        surrounded by the misty mountains of Nuwara Eliya. Your unforgettable escape awaits.</p>
+                    <div class="cta-buttons reveal d3">
+                        <a href="booking.html" class="btn btn-white">
+                            <span>Book the Entire Villa</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </a>
+                        <a href="contactus.html" class="btn-cta-outline">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span>Contact Us</span>
+                        </a>
+                    </div>
+                    <div class="cta-trust reveal d4">
+                        <div class="cta-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Instant Confirmation</span>
+                        </div>
+                        <div class="cta-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Free Cancellation</span>
+                        </div>
+                        <div class="cta-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Best Price Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury
+                            Chalets</span></a>
+                    <p>A private luxury villa in Nuwara Eliya where nature, comfort, and premium service come together
+                        for the
+                        perfect escape.</p>
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                            </svg></a>
+                        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.6-.8 2.5.3 2.2 2.6 4.8 5.6 5.9 1.4.5 2.4.4 3.2-.1.4-.2.9-.8 1-1.3.1-.4.1-.8 0-.9l-.6-.3z" />
+                            </svg></a>
+                        <a href="#" aria-label="Tripadvisor"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 8.5c-2.3-1.5-5-2.3-8-2.3L1.5 9A4.5 4.5 0 0 0 6 16.5a4.5 4.5 0 0 0 3.6-1.8L12 17l2.4-2.3a4.5 4.5 0 0 0 3.6 1.8A4.5 4.5 0 0 0 22.5 9L20 6.2c-3 0-5.7.8-8 2.3zM6 14.5A2.5 2.5 0 1 1 6 9.5a2.5 2.5 0 0 1 0 5zm12 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM6 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="homepage.html" class="active">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="#about">The Villa</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Policies</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">House Rules</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul class="footer-contact">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg> 0760730139</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg> 0772487000</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-10 5L2 7" />
+                            </svg> rtissera@hotmail.com</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg> Nuwara Eliya, Sri Lanka</li>
+                    </ul>
+                </div>
+                <div class="footer-col newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for special offers and villa updates.</p>
+                    <form class="newsletter-form"
+                        onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+                        <input type="email" placeholder="Enter your email" required />
+                        <button type="submit" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 Sulanga Luxury Chalets. All rights reserved.</div>
+    </footer>
+
+    <script>
+        /* sticky nav */
+        const nav = document.getElementById('nav');
+        addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+        /* mobile menu */
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+        /* default date constraints */
+        (function () {
+            const ci = document.getElementById('checkin'), co = document.getElementById('checkout');
+            const pad = n => String(n).padStart(2, '0');
+            const fmt = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+            const t = new Date(), tm = new Date(); tm.setDate(t.getDate() + 1);
+            ci.min = fmt(t);
+            ci.addEventListener('change', () => {
+                if (ci.value) ci.type = 'date';
+                co.min = ci.value;
+                const next = new Date(ci.value); next.setDate(next.getDate() + 1);
+                if (!co.value || co.value <= ci.value) {
+                    co.value = fmt(next);
+                    co.type = 'date';
+                }
+            });
+            co.addEventListener('change', () => {
+                if (co.value) co.type = 'date';
+            });
+        })();
+
+        /* preloader fade */
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('preload').classList.add('done'), 1000);
+        });
+
+        /* scroll reveal triggers */
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        /* guest testimonials slider */
+        (function () {
+            const track = document.getElementById('testiTrack');
+            const cards = document.querySelectorAll('.testi-card');
+            const btnPrev = document.getElementById('testiPrev');
+            const btnNext = document.getElementById('testiNext');
+            let index = 0;
+
+            function getItemsPerView() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
+            }
+
+            function updateSlider() {
+                const itemsPerView = getItemsPerView();
+                const maxIndex = cards.length - itemsPerView;
+                if (index > maxIndex) index = maxIndex;
+                if (index < 0) index = 0;
+
+                if (cards.length > 0) {
+                    const cardWidth = cards[0].offsetWidth;
+                    const gap = 24;
+                    const offset = index * (cardWidth + gap);
+                    track.style.transform = `translateX(-${offset}px)`;
+                }
+
+                if (maxIndex <= 0) {
+                    btnPrev.style.display = 'none';
+                    btnNext.style.display = 'none';
+                } else {
+                    btnPrev.style.display = 'flex';
+                    btnNext.style.display = 'flex';
+
+                    btnPrev.style.opacity = index === 0 ? '0.4' : '1';
+                    btnPrev.style.pointerEvents = index === 0 ? 'none' : 'auto';
+                    btnNext.style.opacity = index === maxIndex ? '0.4' : '1';
+                    btnNext.style.pointerEvents = index === maxIndex ? 'none' : 'auto';
+                }
+            }
+
+            btnPrev.addEventListener('click', () => {
+                if (index > 0) {
+                    index--;
+                    updateSlider();
+                }
+            });
+
+            btnNext.addEventListener('click', () => {
+                const itemsPerView = getItemsPerView();
+                if (index < cards.length - itemsPerView) {
+                    index++;
+                    updateSlider();
+                }
+            });
+
+            window.addEventListener('resize', updateSlider);
+            updateSlider();
+        })();
+    </script>
+</body>
+
+</html>

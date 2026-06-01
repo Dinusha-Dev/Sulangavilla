@@ -1,0 +1,64 @@
+/* Sulanga Calendar — two-month range date picker */
+.sb-cal {
+  position: relative;
+  z-index: 40;
+  margin: 8px 0 18px;
+  border: 1px solid #e4e1d8;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 26px 60px -28px rgba(0, 0, 0, .45);
+  padding: 18px;
+}
+.sb-cal[hidden] { display: none; }
+
+.sb-cal-body { display: flex; align-items: flex-start; gap: 10px; }
+.sb-cal-months { display: flex; gap: 28px; flex: 1; justify-content: center; }
+.sb-cal-month { flex: 1; min-width: 220px; max-width: 280px; }
+.sb-cal-title { text-align: center; font-weight: 600; font-size: 15px; color: #20402a; margin-bottom: 12px; }
+
+.sb-cal-arrow {
+  flex: 0 0 auto;
+  width: 34px; height: 34px;
+  border: 1px solid #e4e1d8; background: #fff; border-radius: 9px;
+  cursor: pointer; color: #20402a; font-size: 18px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.sb-cal-arrow:hover:not(:disabled) { background: #f2f0e9; }
+.sb-cal-arrow:disabled { opacity: .25; cursor: not-allowed; }
+
+.sb-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.sb-dow { text-align: center; font-size: 11px; font-weight: 600; color: #a7a59c; padding: 4px 0; }
+
+.sb-day {
+  aspect-ratio: 1; border: none; background: transparent; padding: 0;
+  font-size: 13px; color: #2c2e28; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 9px;
+}
+.sb-day.is-empty { visibility: hidden; cursor: default; }
+.sb-day:hover:not(.is-disabled):not(.is-reserved):not(.is-in):not(.is-out) { background: #eef4ef; }
+.sb-day.is-today { box-shadow: inset 0 0 0 1px #c9a96a; }
+.sb-day.is-disabled { color: #d2d1cb; cursor: not-allowed; }
+.sb-day.is-reserved { color: #c98b8b; cursor: not-allowed; text-decoration: line-through; background: #faf1f1; }
+
+/* range */
+.sb-day.is-range { background: #dcebdf; border-radius: 0; }
+.sb-day.is-in, .sb-day.is-out { background: #2f7d4f !important; color: #fff !important; }
+.sb-day.is-in { border-radius: 9px 0 0 9px; }
+.sb-day.is-out { border-radius: 0 9px 9px 0; }
+.sb-day.is-in.is-out { border-radius: 9px; }
+
+.sb-cal-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid #f0eee7;
+  font-size: 12px; color: #6a6c63; gap: 12px; flex-wrap: wrap;
+}
+.sb-cal-legend { display: inline-flex; align-items: center; gap: 6px; }
+.sb-cal-legend i { width: 13px; height: 13px; border-radius: 3px; background: #faf1f1; border: 1px solid #e8caca; display: inline-block; }
+.sb-cal-clear { border: none; background: none; color: #6a6c63; cursor: pointer; font-weight: 600; font-size: 12px; margin-right: 10px; }
+.sb-cal-done { border: none; background: #2f7d4f; color: #fff; cursor: pointer; font-weight: 600; font-size: 12px; padding: 7px 16px; border-radius: 7px; }
+.sb-cal-done:hover { background: #20402a; }
+
+@media (max-width: 720px) {
+  .sb-cal-months { flex-direction: column; gap: 18px; }
+  .sb-cal-month { max-width: none; }
+}

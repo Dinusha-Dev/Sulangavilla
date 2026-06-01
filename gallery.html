@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Sulanga Luxury Chalets</title>
+<meta name="description" content="Explore the gorgeous gallery of Sulanga Luxury Chalets in Nuwara Eliya. View interior design, exterior landscaping, private pool, and scenic lake views." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   RESET & TOKENS
+ ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-darker: #05120a; /* Very deep luxury forest green/black */
+  --green-dark:   #081d11; /* Rich forest green */
+  --green-card:   #0b2214; 
+  --green:        #1f4a2c; /* Main green accent */
+  --green-btn:    #1f4a2c; 
+  --green-mid:    #3a8055; /* Mid forest green */
+  --cream:        #f7f6f2; /* Light cream page background */
+  --gray:         #e2e4e0;
+  --text:         #26271f; /* Dark charcoal text */
+  --muted:        #6f7168; /* Grey/muted text */
+  --gold:         #c9a96a; /* Luxury gold accent */
+  --gold-soft:    #ddc593;
+  --sage:         #84996b;
+  --line:         rgba(255, 255, 255, .12);
+  --serif:        'Cormorant Garamond', serif;
+  --sans:         'Jost', sans-serif;
+  --script:       'Great Vibes', cursive;
+  --ease:         cubic-bezier(.22, .61, .36, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--sans); 
+  color: var(--text); 
+  background: var(--cream);
+  line-height: 1.65; 
+  font-weight: 300; 
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; 
+  text-rendering: optimizeLegibility; 
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+::selection { background: var(--gold); color: #fff; }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; border: 2px solid var(--cream); }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
+
+.eyebrow { 
+  display: inline-block; 
+  font-family: var(--sans); 
+  text-transform: uppercase;
+  letter-spacing: .24em; 
+  font-size: 11.5px; 
+  font-weight: 500; 
+  color: var(--sage); 
+  margin-bottom: 16px; 
+}
+
+/* reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .1s; } 
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; } 
+.reveal.d4 { transition-delay: .4s; }
+
+/* ============================================================
+   BUTTONS
+ ============================================================ */
+.btn { 
+  position: relative; 
+  overflow: hidden; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
+  font-family: var(--sans); 
+  font-size: 13px; 
+  font-weight: 500; 
+  letter-spacing: .06em;
+  padding: 14px 26px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: .35s var(--ease); 
+}
+.btn span, .btn svg { position: relative; z-index: 2; }
+.btn svg { width: 15px; height: 15px; }
+
+.btn-green { 
+  background: var(--green); 
+  color: #fff; 
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.btn-green:hover { 
+  background: var(--green-mid);
+  transform: translateY(-2px); 
+}
+
+/* ============================================================
+   TOP BAR
+ ============================================================ */
+.topbar { background: var(--green-darker); color: rgba(255, 255, 255, .75); font-size: 12.5px; }
+.topbar .container { display: flex; align-items: center; justify-content: space-between; min-height: 42px; flex-wrap: wrap; gap: 6px; }
+.topbar-left { display: flex; gap: 26px; flex-wrap: wrap; }
+.topbar-left span { display: inline-flex; align-items: center; gap: 8px; }
+.topbar-left svg { width: 13px; height: 13px; opacity: .85; }
+.topbar-right { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.topbar-right svg { width: 11px; }
+
+/* ============================================================
+   NAV
+ ============================================================ */
+.nav { position: absolute; top: 42px; left: 0; right: 0; z-index: 50; transition: .4s var(--ease); }
+.nav .container { display: flex; align-items: center; justify-content: space-between; min-height: 78px; }
+.logo { line-height: 1; color: #fff; }
+.logo .ln1 { font-family: var(--script); font-size: 36px; color: var(--gold-soft); }
+.logo .ln2 { display: block; font-size: 8.5px; letter-spacing: .4em; text-transform: uppercase; opacity: .85; padding-left: 4px; margin-top: -3px; }
+.nav-menu { display: flex; align-items: center; gap: 32px; }
+.nav-menu a { color: #fff; font-size: 13.5px; letter-spacing: .03em; position: relative; padding-bottom: 6px; transition: .3s var(--ease); }
+.nav-menu a:hover { color: var(--gold-soft); }
+.nav-menu a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--green-mid); transition: .35s var(--ease); }
+.nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+.nav-menu a.active { color: var(--green-mid); }
+.nav.scrolled { position: fixed; top: 0; background: var(--green-darker); box-shadow: 0 6px 30px rgba(0, 0, 0, .28); }
+.nav.scrolled .container { min-height: 66px; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 70; }
+.nav-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+
+/* ============================================================
+   HERO
+ ============================================================ */
+.hero { 
+  position: relative; 
+  min-height: 480px; 
+  display: flex; 
+  align-items: center; 
+  color: #fff;
+  padding-top: 140px; 
+  padding-bottom: 80px; 
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; animation: ken 22s ease-out infinite alternate; }
+@keyframes ken { from { transform: scale(1); } to { transform: scale(1.1); } }
+.hero-bg::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 18, 10, 0.85) 0%, rgba(5, 18, 10, 0.55) 48%, rgba(5, 18, 10, 0.18) 100%); 
+}
+.hero .container { position: relative; z-index: 2; }
+.hero .eyebrow { color: var(--green-mid); }
+.hero h1 { font-size: 64px; font-weight: 500; max-width: 550px; line-height: 1.15; }
+.hero p { max-width: 440px; font-size: 15px; opacity: .9; margin-top: 18px; line-height: 1.8; }
+.h-anim { opacity: 0; transform: translateY(24px); animation: hUp 1s var(--ease) forwards; }
+.h-anim.a1 { animation-delay: .2s; } 
+.h-anim.a2 { animation-delay: .4s; } 
+.h-anim.a3 { animation-delay: .6s; }
+@keyframes hUp { to { opacity: 1; transform: none; } }
+
+/* ============================================================
+   GALLERY PAGE SECTION
+ ============================================================ */
+.gallery-sec { padding: 60px 0 80px; }
+
+/* Filter Bar */
+.filter-bar { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 40px; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+.filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.filter-btn { 
+  border-radius: 4px; 
+  border: 1px solid #dcd8cc; 
+  background: #fff; 
+  color: var(--text); 
+  padding: 10px 18px; 
+  font-size: 13.5px; 
+  font-weight: 500; 
+  cursor: pointer; 
+  transition: 0.3s; 
+  font-family: var(--sans); 
+}
+.filter-btn:hover { 
+  background: var(--cream); 
+  border-color: var(--green-mid); 
+}
+.filter-btn.active { 
+  background: var(--green); 
+  color: #fff; 
+  border-color: var(--green); 
+}
+
+.slideshow-btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px; 
+  border-radius: 4px; 
+  border: 1px solid var(--text); 
+  background: #fff; 
+  color: var(--text); 
+  padding: 10px 20px; 
+  font-size: 13.5px; 
+  font-weight: 500; 
+  cursor: pointer; 
+  transition: 0.3s; 
+  font-family: var(--sans); 
+}
+.slideshow-btn:hover { 
+  background: var(--cream); 
+  transform: translateY(-1px);
+}
+.slideshow-btn svg { width: 14px; height: 14px; }
+
+/* Masonry Grid (CSS Columns) */
+.gallery-grid { 
+  column-count: 3; 
+  column-gap: 20px; 
+  margin-bottom: 30px; 
+}
+.gallery-item { 
+  break-inside: avoid; 
+  margin-bottom: 20px; 
+  border-radius: 8px; 
+  overflow: hidden; 
+  position: relative; 
+  cursor: pointer; 
+  box-shadow: 0 10px 30px rgba(8, 29, 17, 0.04); 
+  background: #fff; 
+  display: block; 
+  transition: transform 0.4s var(--ease), opacity 0.4s var(--ease); 
+}
+.gallery-item.hide {
+  display: none;
+}
+.gallery-item img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  transition: transform 0.6s ease; 
+}
+.gallery-item:hover img { 
+  transform: scale(1.04); 
+}
+.gallery-item-overlay { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(to top, rgba(5, 18, 10, 0.75), rgba(5, 18, 10, 0) 50%); 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+  display: flex; 
+  align-items: flex-end; 
+  padding: 20px; 
+  color: #fff; 
+}
+.gallery-item:hover .gallery-item-overlay { 
+  opacity: 1; 
+}
+.gallery-item-overlay span { 
+  font-size: 13px; 
+  font-weight: 500; 
+  letter-spacing: 0.06em; 
+  text-transform: uppercase; 
+  color: var(--gold-soft); 
+}
+
+/* ============================================================
+   LIGHTBOX MODAL
+ ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 18, 10, 0.97);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 85%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: scale(0.97);
+  transition: transform 0.4s var(--ease);
+}
+.lightbox.active .lightbox-content img {
+  transform: scale(1);
+}
+.lightbox-caption {
+  color: var(--gold-soft);
+  font-family: var(--serif);
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 46px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.75;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.lightbox-close:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  user-select: none;
+  z-index: 1010;
+}
+.lightbox-arrow:hover {
+  background: var(--green-mid);
+  border-color: var(--green-mid);
+  transform: translateY(-50%) scale(1.08);
+}
+.lightbox-arrow.prev { left: 40px; }
+.lightbox-arrow.next { right: 40px; }
+
+/* ============================================================
+   FOOTER
+ ============================================================ */
+.footer { background: #05120a; color: rgba(255, 255, 255, .65); padding: 60px 0 0; font-size: 13.5px; }
+.footer-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 40px; }
+.footer .logo { display: inline-block; margin-bottom: 16px; }
+.footer .logo .ln1 { font-family: var(--script); font-size: 34px; color: var(--gold-soft); }
+.footer .logo .ln2 { display: block; font-size: 8px; letter-spacing: .38em; text-transform: uppercase; opacity: .8; padding-left: 3px; }
+.footer-about p { line-height: 1.75; max-width: 280px; margin-bottom: 20px; }
+.socials { display: flex; gap: 11px; }
+.socials a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; transition: .3s var(--ease); }
+.socials a:hover { background: var(--green-mid); border-color: var(--green-mid); transform: translateY(-3px); color: #fff; }
+.socials svg { width: 15px; height: 15px; }
+.footer h5 { font-family: var(--sans); color: #fff; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a:hover { color: var(--gold-soft); }
+.footer-links a.active { color: var(--green-mid); }
+.footer-contact li { display: flex; gap: 11px; margin-bottom: 13px; align-items: flex-start; }
+.footer-contact svg { width: 15px; height: 15px; margin-top: 3px; flex-shrink: 0; color: var(--gold); }
+
+.footer-news { 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 24px; 
+  padding: 26px 30px; 
+  flex-wrap: wrap; 
+  margin-top: 20px;
+}
+.footer-news-left { display: flex; align-items: center; gap: 15px; }
+.footer-news-ic { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.footer-news-ic svg { width: 20px; height: 20px; color: var(--gold); }
+.footer-news-left b { display: block; color: #fff; font-family: var(--serif); font-size: 18px; }
+.footer-news-left small { font-size: 12.5px; color: rgba(255, 255, 255, 0.6); }
+.footer-news form { display: flex; gap: 12px; flex: 1; max-width: 480px; min-width: 280px; }
+.footer-news input { 
+  flex: 1; 
+  border: 1px solid var(--line); 
+  border-radius: 6px; 
+  background: #fff; 
+  color: var(--text); 
+  padding: 12px 15px; 
+  font-family: var(--sans); 
+  font-size: 13.5px; 
+  outline: none; 
+}
+.footer-news input::placeholder { color: #999c95; }
+.footer-news .btn-green {
+  background: #7ee0a1; 
+  color: #05120a;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.footer-news .btn-green:hover {
+  background: #6cd492;
+}
+.footer-bottom { border-top: 1px solid var(--line); text-align: center; padding: 20px 0; font-size: 12px; margin-top: 40px; }
+
+/* ============================================================
+   RESPONSIVE
+ ============================================================ */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 48px; }
+  .gallery-grid { column-count: 2; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .topbar-left { gap: 14px; font-size: 11.5px; }
+  .nav-menu { position: fixed; inset: 0 -100% 0 auto; width: 80%; background: var(--green-darker);
+    flex-direction: column; justify-content: center; gap: 26px; transition: .4s var(--ease); z-index: 60; padding: 40px; }
+  .nav-menu.open { right: 0; } 
+  .nav-toggle { display: block; }
+  .hero h1 { font-size: 38px; }
+  .filter-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .slideshow-btn { width: 100%; justify-content: center; }
+  .gallery-grid { column-count: 1; }
+  .lightbox-arrow { width: 44px; height: 44px; font-size: 20px; }
+  .lightbox-arrow.prev { left: 16px; }
+  .lightbox-arrow.next { right: 16px; }
+  .lightbox-close { top: 20px; right: 20px; font-size: 36px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .hero h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Reservation: 0760730139</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Operations: 0772487000</span>
+    </div>
+    <div class="topbar-right"><span>USD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="homepage.html#about">The Villa</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-green" style="padding:13px 26px;"><span>Book now</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80" alt="Sulanga villa at dusk" /></div>
+  <div class="container">
+    <span class="eyebrow h-anim a1">Gallery</span>
+    <h1 class="h-anim a2">Moments of<br/>Tranquility</h1>
+    <p class="h-anim a3">Explore the beauty, comfort, and experiences that make Sulanga Luxury Chalets a truly unforgettable escape.</p>
+  </div>
+</header>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-sec">
+  <div class="container">
+    
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <div class="filter-buttons" id="filterButtons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="interior">Interior</button>
+        <button class="filter-btn" data-filter="rooms">Rooms</button>
+        <button class="filter-btn" data-filter="pool">Pool</button>
+        <button class="filter-btn" data-filter="views">Views</button>
+        <button class="filter-btn" data-filter="experiences">Experiences</button>
+      </div>
+      <button class="slideshow-btn" id="startSlideshow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>View Slideshow</span>
+      </button>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="gallery-grid reveal d1" id="galleryGrid">
+      
+      <!-- Card 1 -->
+      <div class="gallery-item" data-category="exterior">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="Chalet Daytime Exterior" />
+        <div class="gallery-item-overlay">
+          <span>Daytime Exterior — Exterior</span>
+        </div>
+      </div>
+
+      <!-- Card 4 (Placed according to Column-1 mapping in mockup) -->
+      <div class="gallery-item" data-category="interior">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Interior Living Room" />
+        <div class="gallery-item-overlay">
+          <span>Interior Living Room — Interior</span>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="gallery-item" data-category="rooms interior">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Luxury Master Bedroom" />
+        <div class="gallery-item-overlay">
+          <span>Luxury Master Bedroom — Rooms</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-item" data-category="views experiences">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80" alt="Sunset Balcony Views" />
+        <div class="gallery-item-overlay">
+          <span>Sunset Terrace Views — Views</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-item" data-category="pool exterior">
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Private Pool at Twilight" />
+        <div class="gallery-item-overlay">
+          <span>Private Pool — Pool</span>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="gallery-item" data-category="interior rooms">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Bathroom Bathtub View" />
+        <div class="gallery-item-overlay">
+          <span>Luxury Bathroom — Interior</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-item" data-category="exterior">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Chalet Exterior at Dusk" />
+        <div class="gallery-item-overlay">
+          <span>Chalet Side Dusk — Exterior</span>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="gallery-item" data-category="exterior">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Chalet front view at night" />
+        <div class="gallery-item-overlay">
+          <span>Front Lawn Dusk — Exterior</span>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="gallery-item" data-category="views exterior">
+        <img src="https://images.unsplash.com/photo-1618762044398-ec1e7e048bbd?auto=format&fit=crop&w=800&q=80" alt="Gregory Lake Views" />
+        <div class="gallery-item-overlay">
+          <span>Lake & Hills View — Views</span>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="gallery-item" data-category="interior experiences">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Dining Table Experience" />
+        <div class="gallery-item-overlay">
+          <span>Gourmet Dining Space — Interior</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="Slideshow Image" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-arrow next" id="lightboxNext" aria-label="Next">&#10095;</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+        <p>Nestled in the serene landscapes of Nuwara Eliya, Sulanga embodies the perfect blend of modern luxury and natural beauty.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.6-.8 2.5.3 2.2 2.6 4.8 5.6 5.9 1.4.5 2.4.4 3.2-.1.4-.2.9-.8 1-1.3.1-.4.1-.8 0-.9l-.6-.3z"/></svg></a>
+          <a href="#" aria-label="Tripadvisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 8.5c-2.3-1.5-5-2.3-8-2.3L1.5 9A4.5 4.5 0 0 0 6 16.5a4.5 4.5 0 0 0 3.6-1.8L12 17l2.4-2.3a4.5 4.5 0 0 0 3.6 1.8A4.5 4.5 0 0 0 22.5 9L20 6.2c-3 0-5.7.8-8 2.3zM6 14.5A2.5 2.5 0 1 1 6 9.5a2.5 2.5 0 0 1 0 5zm12 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM6 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="homepage.html#about">The Villa</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Useful Links</h5>
+        <ul class="footer-links">
+          <li><a href="#">Activities</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0760730139</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0772487000</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nuwara Eliya, Sri Lanka</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-news">
+      <div class="footer-news-left">
+        <div class="footer-news-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+        <div><b>Stay Updated</b><small>Subscribe to get the latest offers and updates.</small></div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+        <input type="email" placeholder="Enter your email address" required />
+        <button type="submit" class="btn btn-green"><span>Subscribe</span></button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Sulanga Luxury Chalets. All rights reserved.</div>
+</footer>
+
+<script>
+/* sticky nav */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+/* mobile menu */
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+/* Masonry Filter logic */
+const filterButtons = document.getElementById('filterButtons');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+function applyFilter(filterVal) {
+  galleryItems.forEach(item => {
+    const categories = item.getAttribute('data-category').split(' ');
+    if (filterVal === 'all' || categories.includes(filterVal)) {
+      item.classList.remove('hide');
+    } else {
+      item.classList.add('hide');
+    }
+  });
+}
+
+filterButtons.addEventListener('click', (e) => {
+  if (e.target.classList.contains('filter-btn')) {
+    // toggle active button
+    filterButtons.querySelector('.filter-btn.active').classList.remove('active');
+    e.target.classList.add('active');
+    const filterVal = e.target.getAttribute('data-filter');
+    applyFilter(filterVal);
+  }
+});
+
+// URL Filter Auto-Trigger
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const filterParam = params.get('filter');
+  if (filterParam) {
+    const btn = filterButtons.querySelector(`[data-filter="${filterParam}"]`);
+    if (btn) {
+      filterButtons.querySelector('.filter-btn.active').classList.remove('active');
+      btn.classList.add('active');
+      applyFilter(filterParam);
+    }
+  }
+})();
+
+/* Lightbox logic */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const closeBtn = document.getElementById('lightboxClose');
+const prevBtn = document.getElementById('lightboxPrev');
+const nextBtn = document.getElementById('lightboxNext');
+const startSlideshowBtn = document.getElementById('startSlideshow');
+
+let activeItems = [];
+let currentIndex = 0;
+
+// Update active items based on current visible items
+function updateActiveItems() {
+  activeItems = Array.from(galleryItems).filter(item => !item.classList.contains('hide'));
+}
+
+function showImage(index) {
+  if (index < 0) index = activeItems.length - 1;
+  if (index >= activeItems.length) index = 0;
+  
+  currentIndex = index;
+  const currentItem = activeItems[currentIndex];
+  const imgEl = currentItem.querySelector('img');
+  const captionEl = currentItem.querySelector('.gallery-item-overlay span');
+
+  lightboxImg.src = imgEl.src;
+  lightboxCaption.textContent = captionEl.textContent.split(' — ')[0];
+}
+
+// Click on individual item
+galleryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    updateActiveItems();
+    const index = activeItems.indexOf(item);
+    if (index !== -1) {
+      showImage(index);
+      lightbox.classList.add('active');
+    }
+  });
+});
+
+// Click slideshow button
+startSlideshowBtn.addEventListener('click', () => {
+  updateActiveItems();
+  if (activeItems.length > 0) {
+    showImage(0);
+    lightbox.classList.add('active');
+  }
+});
+
+// Controls
+closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+// Close on clicking backdrop
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+  }
+});
+
+// Keyboard controls
+window.addEventListener('keydown', (e) => {
+  if (lightbox.classList.contains('active')) {
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  }
+});
+
+/* scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

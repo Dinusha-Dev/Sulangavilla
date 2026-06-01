@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Booking — Sulanga Luxury Chalets</title>
+<meta name="description" content="Book the entire Sulanga Luxury Chalet in Nuwara Eliya for your private escape. Check availability and reserve your exclusive stay." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   RESET & TOKENS
+ ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-darker: #05120a; /* Very deep luxury forest green/black */
+  --green-dark:   #081d11; /* Rich forest green */
+  --green-card:   #0b2214; /* Card headers and details dark green */
+  --green:        #1f4a2c; /* Main green accent */
+  --green-btn:    #1f4a2c; 
+  --green-mid:    #3a8055; /* Mid forest green */
+  --cream:        #f7f6f2; /* Light cream page background */
+  --gray:         #e2e4e0;
+  --text:         #26271f; /* Dark charcoal text */
+  --muted:        #6f7168; /* Grey/muted text */
+  --gold:         #c9a96a; /* Luxury gold accent */
+  --gold-soft:    #ddc593;
+  --sage:         #84996b;
+  --line:         rgba(255, 255, 255, .12);
+  --serif:        'Cormorant Garamond', serif;
+  --sans:         'Jost', sans-serif;
+  --script:       'Great Vibes', cursive;
+  --ease:         cubic-bezier(.22, .61, .36, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--sans); 
+  color: var(--text); 
+  background: var(--cream);
+  line-height: 1.65; 
+  font-weight: 300; 
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; 
+  text-rendering: optimizeLegibility; 
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+::selection { background: var(--gold); color: #fff; }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; border: 2px solid var(--cream); }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
+
+.eyebrow { 
+  display: inline-block; 
+  font-family: var(--sans); 
+  text-transform: uppercase;
+  letter-spacing: .24em; 
+  font-size: 11.5px; 
+  font-weight: 500; 
+  color: var(--sage); 
+  margin-bottom: 16px; 
+}
+
+/* reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .1s; } 
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; } 
+.reveal.d4 { transition-delay: .4s; }
+
+/* ============================================================
+   BUTTONS
+ ============================================================ */
+.btn { 
+  position: relative; 
+  overflow: hidden; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
+  font-family: var(--sans); 
+  font-size: 13.0px; 
+  font-weight: 500; 
+  letter-spacing: .06em;
+  padding: 14px 26px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: .35s var(--ease); 
+}
+.btn span, .btn svg { position: relative; z-index: 2; }
+.btn svg { width: 15px; height: 15px; }
+
+.btn-green { 
+  background: var(--green); 
+  color: #fff; 
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.btn-green:hover { 
+  background: var(--green-mid);
+  transform: translateY(-2px); 
+}
+
+.btn-dark { 
+  background: var(--green-card); 
+  color: #fff; 
+}
+.btn-dark:hover { 
+  background: var(--green-darker);
+  transform: translateY(-2px); 
+}
+
+/* ============================================================
+   TOP BAR
+ ============================================================ */
+.topbar { background: var(--green-darker); color: rgba(255, 255, 255, .75); font-size: 12.5px; }
+.topbar .container { display: flex; align-items: center; justify-content: space-between; min-height: 42px; flex-wrap: wrap; gap: 6px; }
+.topbar-left { display: flex; gap: 26px; flex-wrap: wrap; }
+.topbar-left span { display: inline-flex; align-items: center; gap: 8px; }
+.topbar-left svg { width: 13px; height: 13px; opacity: .85; }
+.topbar-right { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.topbar-right svg { width: 11px; }
+
+/* ============================================================
+   NAV
+ ============================================================ */
+.nav { position: absolute; top: 42px; left: 0; right: 0; z-index: 50; transition: .4s var(--ease); }
+.nav .container { display: flex; align-items: center; justify-content: space-between; min-height: 78px; }
+.logo { line-height: 1; color: #fff; }
+.logo .ln1 { font-family: var(--script); font-size: 36px; color: var(--gold-soft); }
+.logo .ln2 { display: block; font-size: 8.5px; letter-spacing: .4em; text-transform: uppercase; opacity: .85; padding-left: 4px; margin-top: -3px; }
+.nav-menu { display: flex; align-items: center; gap: 30px; }
+.nav-menu a { color: #fff; font-size: 13.5px; letter-spacing: .03em; position: relative; padding-bottom: 6px; transition: .3s var(--ease); }
+.nav-menu a:hover { color: var(--gold-soft); }
+.nav-menu a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--green-mid); transition: .35s var(--ease); }
+.nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+.nav-menu a.active { color: var(--green-mid); }
+.nav.scrolled { position: fixed; top: 0; background: var(--green-darker); box-shadow: 0 6px 30px rgba(0, 0, 0, .28); }
+.nav.scrolled .container { min-height: 66px; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 70; }
+.nav-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+
+/* ============================================================
+   HERO
+ ============================================================ */
+.hero { 
+  position: relative; 
+  min-height: 480px; 
+  display: flex; 
+  align-items: center; 
+  color: #fff;
+  padding-top: 140px; 
+  padding-bottom: 80px; 
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; animation: ken 22s ease-out infinite alternate; }
+@keyframes ken { from { transform: scale(1); } to { transform: scale(1.1); } }
+.hero-bg::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 18, 10, 0.85) 0%, rgba(5, 18, 10, 0.55) 48%, rgba(5, 18, 10, 0.18) 100%); 
+}
+.hero .container { position: relative; z-index: 2; }
+.hero .eyebrow { color: var(--green-mid); }
+.hero h1 { font-size: 64px; font-weight: 500; max-width: 550px; }
+.hero p { max-width: 440px; font-size: 15px; opacity: .9; margin-top: 18px; line-height: 1.8; }
+.hero-pill { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 26px;
+  background: rgba(255, 255, 255, .07); 
+  border: 1px solid rgba(255, 255, 255, .22); 
+  backdrop-filter: blur(5px);
+  border-radius: 6px; 
+  padding: 12px 18px; 
+  font-size: 13px; 
+}
+.hero-pill svg { width: 16px; height: 16px; color: var(--gold); }
+.h-anim { opacity: 0; transform: translateY(24px); animation: hUp 1s var(--ease) forwards; }
+.h-anim.a1 { animation-delay: .2s; } 
+.h-anim.a2 { animation-delay: .4s; } 
+.h-anim.a3 { animation-delay: .6s; } 
+.h-anim.a4 { animation-delay: .8s; }
+@keyframes hUp { to { opacity: 1; transform: none; } }
+
+/* ============================================================
+   BOOKING LAYOUT
+ ============================================================ */
+.booking-sec { padding: 60px 0 60px; }
+.booking-grid { display: grid; grid-template-columns: 1.22fr 1fr; gap: 34px; align-items: start; }
+.card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px -18px rgba(8, 29, 17, 0.08); }
+.card-head { background: var(--green-darker); color: #fff; padding: 26px 30px; }
+.card-head h2 { display: flex; align-items: center; gap: 11px; font-size: 25px; font-weight: 500; font-family: var(--serif); }
+.card-head h2 svg { width: 22px; height: 22px; color: var(--gold); }
+.card-head p { font-size: 13.5px; opacity: .75; margin-top: 6px; font-family: var(--sans); }
+
+/* form */
+.form-body { padding: 30px; }
+.field { margin-bottom: 22px; }
+.field label { display: block; font-size: 13px; color: #4a4c44; margin-bottom: 8px; letter-spacing: .01em; font-weight: 500; }
+.input, .form-body select { 
+  width: 100%; 
+  border: 1px solid #dcd8cc; 
+  border-radius: 6px; 
+  padding: 13px 14px;
+  font-family: var(--sans); 
+  font-size: 14px; 
+  color: var(--text); 
+  outline: none; 
+  background: #fff; 
+  transition: border-color .3s, box-shadow .3s; 
+}
+.input:focus, .form-body select:focus { border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(70, 150, 106, .12); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.with-ic { position: relative; }
+.with-ic .input { padding-right: 40px; }
+.with-ic svg { 
+  position: absolute; 
+  right: 14px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 18px; 
+  height: 18px; 
+  color: var(--muted); 
+  pointer-events: none; 
+}
+.with-ic input[type=date]::-webkit-calendar-picker-indicator { opacity: 0; cursor: pointer; }
+.phone-row { display: flex; gap: 12px; }
+.phone-row select { 
+  width: 110px; 
+  flex-shrink: 0; 
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f7168' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+textarea.input { resize: vertical; min-height: 100px; }
+.form-body .btn { width: 100%; padding: 16px; margin-top: 6px; }
+.secure-note { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 18px; }
+.secure-note svg { width: 14px; height: 14px; color: var(--green-mid); }
+
+/* summary */
+.sum-img { position: relative; }
+.sum-img img { width: 100%; height: 180px; object-fit: cover; }
+.sum-badge { 
+  position: absolute; 
+  top: 14px; 
+  right: 14px; 
+  background: var(--green); 
+  color: #fff;
+  font-size: 11px; 
+  padding: 6px 13px; 
+  border-radius: 20px; 
+  letter-spacing: .03em; 
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.sum-body { padding: 26px 30px 30px; }
+.sum-body h3 { font-size: 26px; font-weight: 600; margin-bottom: 12px; font-family: var(--serif); color: var(--green-darker); }
+.sum-meta { font-size: 13.5px; color: #52544c; margin-bottom: 15px; }
+.sum-meta li { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.sum-meta svg { width: 16px; height: 16px; color: var(--green-mid); }
+.sum-feats { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px 18px; 
+  margin: 18px 0; 
+  padding: 18px 0; 
+  border-top: 1px solid #f0eee7; 
+  border-bottom: 1px solid #f0eee7; 
+}
+.sum-feats li { display: flex; align-items: center; gap: 9px; font-size: 13px; color: #4a4c44; }
+.sum-feats svg { width: 16px; height: 16px; color: var(--green-mid); flex-shrink: 0; }
+.sum-price { margin-bottom: 20px; }
+.sum-price .amt { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--text); }
+.sum-price .amt small { font-size: 14px; font-weight: 400; color: var(--muted); font-family: var(--sans); }
+.sum-price .usd { color: var(--green-mid); font-size: 14.5px; font-weight: 500; margin-top: 2px; }
+.sum-price .usd2 { color: var(--muted); font-size: 12px; margin-top: 1px; }
+
+.breakdown { margin-top: 22px; }
+.breakdown .row { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 12px 0; 
+  border-bottom: 1px solid #f0eee7; 
+  font-size: 13.5px; 
+  color: #4a4c44; 
+}
+.breakdown .row .val { font-weight: 500; color: var(--text); }
+.stepper { 
+  display: inline-flex; 
+  align-items: center; 
+  border: 1px solid #e2e4e0; 
+  border-radius: 6px; 
+  background: #fff;
+  overflow: hidden; 
+  height: 32px;
+}
+.stepper button { 
+  width: 32px; 
+  height: 100%; 
+  border: none; 
+  background: #fff; 
+  cursor: pointer; 
+  font-size: 15px; 
+  color: var(--text); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s; 
+}
+.stepper button:hover { background: var(--cream); color: var(--green-dark); }
+.stepper span { 
+  width: 36px; 
+  text-align: center; 
+  font-size: 14px; 
+  font-weight: 500; 
+  color: var(--text);
+  border-left: 1px solid #e2e4e0;
+  border-right: 1px solid #e2e4e0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.breakdown .total { display: flex; align-items: center; justify-content: space-between; padding: 18px 0 4px; border-bottom: none; }
+.breakdown .total b { font-family: var(--serif); font-size: 19px; color: var(--text); }
+.breakdown .total .tval { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--text); }
+.breakdown .usd-est { text-align: right; font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+.tax-note { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); margin-top: 16px; }
+.tax-note svg { width: 13px; height: 13px; }
+
+/* ============================================================
+   TRUST STRIP
+ ============================================================ */
+.trust { padding: 10px 0 60px; }
+.trust-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  background: #fff;
+  border: 1px solid #e6e2d8; 
+  border-radius: 12px; 
+  padding: 30px 24px; 
+  box-shadow: 0 10px 30px rgba(8, 29, 17, 0.03);
+}
+.trust-item { display: flex; gap: 14px; align-items: flex-start; padding: 0 16px; border-right: 1px solid #e6e2d8; }
+.trust-item:last-child { border-right: none; }
+.trust-item .ic { 
+  width: 42px; 
+  height: 42px; 
+  border-radius: 50%; 
+  border: 1px solid #d9e3da; 
+  background: #f4f8f4;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-shrink: 0; 
+}
+.trust-item .ic svg { width: 20px; height: 20px; color: var(--green-mid); }
+.trust-item b { display: block; font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 4px; color: var(--green-darker); }
+.trust-item small { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ============================================================
+   WHAT'S INCLUDED
+ ============================================================ */
+.included { padding: 0 0 70px; }
+.included-card { background: var(--green-darker); border-radius: 12px; padding: 48px 40px; color: #fff; }
+.included-card h2 { font-size: 34px; font-weight: 500; font-family: var(--serif); text-align: left; }
+.included-card .lead { font-size: 13.5px; opacity: .7; margin: 6px 0 8px; }
+.included-card .underline { width: 46px; height: 3px; background: var(--green-mid); border-radius: 3px; margin-bottom: 30px; }
+
+.inc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.inc-card { 
+  background: #0b2214; 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 12px; 
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+  transition: border-color 0.3s, transform 0.3s;
+}
+.inc-card:hover { 
+  border-color: var(--green-mid); 
+  transform: translateY(-4px); 
+}
+.inc-img-wrap {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+}
+.inc-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.inc-card:hover img { transform: scale(1.08); }
+
+.inc-ic { 
+  position: absolute; 
+  top: 140px; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 5;
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%; 
+  background: #0b2214; 
+  border: 2px solid #fff;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  transition: .3s var(--ease); 
+}
+.inc-card:hover .inc-ic { background: var(--green-mid); border-color: var(--green-mid); }
+.inc-ic svg { width: 20px; height: 20px; color: #fff; }
+
+.inc-text { 
+  padding: 34px 20px 24px; 
+  text-align: center; 
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.inc-text b { display: block; font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--gold-soft); margin-bottom: 6px; }
+.inc-text small { font-size: 12px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; }
+
+/* ============================================================
+   FOOTER
+ ============================================================ */
+.footer { background: #05120a; color: rgba(255, 255, 255, .65); padding: 60px 0 0; font-size: 13.5px; }
+.footer-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 40px; }
+.footer .logo { display: inline-block; margin-bottom: 16px; }
+.footer .logo .ln1 { font-family: var(--script); font-size: 34px; color: var(--gold-soft); }
+.footer .logo .ln2 { display: block; font-size: 8px; letter-spacing: .38em; text-transform: uppercase; opacity: .8; padding-left: 3px; }
+.footer-about p { line-height: 1.75; max-width: 280px; margin-bottom: 20px; }
+.socials { display: flex; gap: 11px; }
+.socials a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; transition: .3s var(--ease); }
+.socials a:hover { background: var(--green-mid); border-color: var(--green-mid); transform: translateY(-3px); color: #fff; }
+.socials svg { width: 15px; height: 15px; }
+.footer h5 { font-family: var(--sans); color: #fff; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a:hover { color: var(--gold-soft); }
+.footer-links a.active { color: var(--green-mid); }
+.footer-contact li { display: flex; gap: 11px; margin-bottom: 13px; align-items: flex-start; }
+.footer-contact svg { width: 15px; height: 15px; margin-top: 3px; flex-shrink: 0; color: var(--gold); }
+
+.footer-news { 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 24px; 
+  padding: 26px 30px; 
+  flex-wrap: wrap; 
+  margin-top: 20px;
+}
+.footer-news-left { display: flex; align-items: center; gap: 15px; }
+.footer-news-ic { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.footer-news-ic svg { width: 20px; height: 20px; color: var(--gold); }
+.footer-news-left b { display: block; color: #fff; font-family: var(--serif); font-size: 18px; }
+.footer-news-left small { font-size: 12.5px; color: rgba(255, 255, 255, 0.6); }
+.footer-news form { display: flex; gap: 12px; flex: 1; max-width: 480px; min-width: 280px; }
+.footer-news input { 
+  flex: 1; 
+  border: 1px solid var(--line); 
+  border-radius: 6px; 
+  background: #fff; 
+  color: var(--text); 
+  padding: 12px 15px; 
+  font-family: var(--sans); 
+  font-size: 13.5px; 
+  outline: none; 
+}
+.footer-news input::placeholder { color: #999c95; }
+.footer-news .btn-green {
+  background: #7ee0a1; /* Light green button as mockup */
+  color: #05120a;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.footer-news .btn-green:hover {
+  background: #6cd492;
+}
+.footer-bottom { border-top: 1px solid var(--line); text-align: center; padding: 20px 0; font-size: 12px; margin-top: 40px; }
+
+/* ============================================================
+   RESPONSIVE
+ ============================================================ */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 48px; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+  .trust-item:nth-child(2) { border-right: none; }
+  .inc-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .topbar-left { gap: 14px; font-size: 11.5px; }
+  .nav-menu { position: fixed; inset: 0 -100% 0 auto; width: 80%; background: var(--green-darker);
+    flex-direction: column; justify-content: center; gap: 26px; transition: .4s var(--ease); z-index: 60; padding: 40px; }
+  .nav-menu.open { right: 0; } 
+  .nav-toggle { display: block; }
+  .hero h1 { font-size: 38px; }
+  .field-row { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-item { border-right: none; }
+  .inc-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .hero h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Reservation: 0760730139</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> For Operations: 0772487000</span>
+    </div>
+    <div class="topbar-right"><span>USD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="homepage.html#about">The Villa</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="booking.html" class="active">Booking</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+    <a href="#booking-form" class="btn btn-green" style="padding:13px 26px; border: 1.5px solid var(--gold-soft);"><span>Book now</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80" alt="Sulanga villa at dusk" /></div>
+  <div class="container">
+    <span class="eyebrow h-anim a1">Book Your Stay</span>
+    <h1 class="h-anim a2">Reserve Your<br/>Private Escape</h1>
+    <p class="h-anim a3">Book the entire villa for an exclusive stay in Nuwara Eliya. One reservation. Total privacy. Unforgettable memories.</p>
+    <div class="hero-pill h-anim a4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Entire villa booking only — no individual room reservations.
+    </div>
+  </div>
+</header>
+
+<!-- BOOKING -->
+<section class="booking-sec" id="booking-form">
+  <div class="container">
+    <div class="booking-grid">
+
+      <!-- LEFT: FORM -->
+      <div class="card reveal">
+        <div class="card-head">
+          <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Booking Details</h2>
+          <p>Please complete the form below to check availability and reserve your stay.</p>
+        </div>
+        <form class="form-body" onsubmit="event.preventDefault(); alert('Reservation request submitted! We will confirm your booking shortly.');">
+          <div class="field-row">
+            <div class="field">
+              <label for="checkin">Check-in Date</label>
+              <div class="with-ic">
+                <input type="text" placeholder="Select date" onfocus="this.type='date'; this.showPicker?.()" onblur="if(!this.value) this.type='text'" id="checkin" class="input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+            </div>
+            <div class="field">
+              <label for="checkout">Check-out Date</label>
+              <div class="with-ic">
+                <input type="text" placeholder="Select date" onfocus="this.type='date'; this.showPicker?.()" onblur="if(!this.value) this.type='text'" id="checkout" class="input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+            </div>
+            <div class="field">
+              <label for="guests-select">Guests</label>
+              <div class="with-ic">
+                <select id="guests-select" class="input">
+                  <option>2 Guests</option><option>3 Guests</option><option>4 Guests</option>
+                  <option>5 Guests</option><option>6 Guests</option>
+                </select>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" class="input" placeholder="Enter your full name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="input" placeholder="Enter your email address" required />
+          </div>
+          <div class="field">
+            <label for="phone-number">Phone Number</label>
+            <div class="phone-row">
+              <select id="phone-country" class="input">
+                <option>🇱🇰 +94</option><option>🇮🇳 +91</option><option>🇬🇧 +44</option><option>🇺🇸 +1</option><option>🇦🇺 +61</option>
+              </select>
+              <input type="tel" id="phone-number" class="input" placeholder="Enter your phone number" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="special-requests">Special Requests (Optional)</label>
+            <textarea id="special-requests" class="input" placeholder="Let us know if you have any special requests or requirements..."></textarea>
+          </div>
+          <button type="submit" id="submit-booking" class="btn btn-dark"><span>Continue to Reserve</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="secure-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+            Your information is secure and will only be used for your reservation.
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: SUMMARY -->
+      <div class="card reveal d2">
+        <div class="card-head"><h2 style="font-size:22px">Your Stay Summary</h2></div>
+        <div class="sum-img">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Entire villa" />
+          <span class="sum-badge">Entire Villa</span>
+        </div>
+        <div class="sum-body">
+          <h3>Entire Villa</h3>
+          <ul class="sum-meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nuwara Eliya, Sri Lanka</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Up to 6 Guests</li>
+          </ul>
+          <ul class="sum-feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Private Pool</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Living &amp; Dining Area</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Mountain Views</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Balcony &amp; Terrace</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Modern Interiors</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Whole Property Privacy</li>
+          </ul>
+          <div class="sum-price">
+            <div class="amt">LKR 150,000 <small>/ night</small></div>
+            <div class="usd">Approx. USD 500 / night</div>
+            <div class="usd2">USD 500 whole villa rate</div>
+          </div>
+          <div class="breakdown">
+            <div class="row"><span>Nightly Rate (Entire Villa)</span><span class="val">LKR 150,000</span></div>
+            <div class="row"><span>Number of Nights</span>
+              <span class="stepper"><button type="button" id="minus">−</button><span id="nights">2</span><button type="button" id="plus">+</button></span>
+            </div>
+            <div class="row"><span>Subtotal</span><span class="val" id="subtotal">LKR 300,000</span></div>
+            <div class="row"><span>Service &amp; Cleaning Fee</span><span class="val">LKR 10,000</span></div>
+            <div class="total"><b>Total Estimate</b><span class="tval" id="total">LKR 310,000</span></div>
+            <div class="usd-est" id="usdEst">Approx. USD 1,033</div>
+          </div>
+          <div class="tax-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Taxes and additional fees may apply.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <div class="container">
+    <div class="trust-grid reveal">
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><b>Secure Reservation</b><small>Your data is protected with industry-leading security.</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><b>Instant Confirmation Request</b><small>We'll confirm your booking as quickly as possible.</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+        <div><b>Private Villa Stay</b><small>Enjoy complete privacy and exclusivity.</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></div>
+        <div><b>Scenic Mountain Location</b><small>Wake up to breathtaking views in Nuwara Eliya.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="container">
+    <div class="included-card reveal">
+      <h2>What's Included</h2>
+      <div class="lead">Everything you need for a luxurious and relaxing stay.</div>
+      <div class="underline"></div>
+      <div class="inc-grid">
+        <!-- Card 1 -->
+        <div class="inc-card">
+          <div class="inc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=600&q=80" alt="Private pool" />
+          </div>
+          <div class="inc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0"/></svg></div>
+          <div class="inc-text"><b>Private Pool</b><small>Infinity pool with stunning mountain views.</small></div>
+        </div>
+        <!-- Card 2 -->
+        <div class="inc-card">
+          <div class="inc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Premium bedroom" />
+          </div>
+          <div class="inc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 17v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5M2 17h20M4 12V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/></svg></div>
+          <div class="inc-text"><b>Premium Comfort</b><small>Spacious bedrooms with premium linens.</small></div>
+        </div>
+        <!-- Card 3 -->
+        <div class="inc-card">
+          <div class="inc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Modern living" />
+          </div>
+          <div class="inc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6M3 18h18"/></svg></div>
+          <div class="inc-text"><b>Modern Living</b><small>Stylish interiors and cozy living spaces.</small></div>
+        </div>
+        <!-- Card 4 -->
+        <div class="inc-card">
+          <div class="inc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="Dining facilities" />
+          </div>
+          <div class="inc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2M5 2v20M16 2c-2 0-3 2-3 5s1 5 3 5v10"/></svg></div>
+          <div class="inc-text"><b>Fully Equipped</b><small>Complete kitchen and dining facilities.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="homepage.html" class="logo"><span class="ln1">Sulanga</span><span class="ln2">Luxury Chalets</span></a>
+        <p>Nestled in the serene landscapes of Nuwara Eliya, Sulanga embodies the perfect blend of modern luxury and natural beauty.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.6-.8 2.5.3 2.2 2.6 4.8 5.6 5.9 1.4.5 2.4.4 3.2-.1.4-.2.9-.8 1-1.3.1-.4.1-.8 0-.9l-.6-.3z"/></svg></a>
+          <a href="#" aria-label="Tripadvisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 8.5c-2.3-1.5-5-2.3-8-2.3L1.5 9A4.5 4.5 0 0 0 6 16.5a4.5 4.5 0 0 0 3.6-1.8L12 17l2.4-2.3a4.5 4.5 0 0 0 3.6 1.8A4.5 4.5 0 0 0 22.5 9L20 6.2c-3 0-5.7.8-8 2.3zM6 14.5A2.5 2.5 0 1 1 6 9.5a2.5 2.5 0 0 1 0 5zm12 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM6 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="homepage.html#about">The Villa</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="booking.html" class="active">Booking</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Useful Links</h5>
+        <ul class="footer-links">
+          <li><a href="#">Activities</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0760730139</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0772487000</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> rtissera@hotmail.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nuwara Eliya, Sri Lanka</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-news">
+      <div class="footer-news-left">
+        <div class="footer-news-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+        <div><b>Stay Updated</b><small>Subscribe to get the latest offers and updates.</small></div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+        <input type="email" placeholder="Enter your email address" required />
+        <button type="submit" class="btn btn-green"><span>Subscribe</span></button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Sulanga Luxury Chalets. All rights reserved.</div>
+</footer>
+
+<script>
+/* sticky nav */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+/* mobile menu */
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+/* default booking dates */
+(function(){
+  const ci = document.getElementById('checkin'), co = document.getElementById('checkout');
+  const pad = n => String(n).padStart(2,'0');
+  const fmt = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const t = new Date(), tm = new Date(); tm.setDate(t.getDate()+1);
+  ci.min = fmt(t);
+  ci.addEventListener('change', () => {
+    if(ci.value) ci.type = 'date';
+    co.min = ci.value;
+    const next = new Date(ci.value); next.setDate(next.getDate()+1);
+    if(!co.value || co.value <= ci.value) {
+      co.value = fmt(next);
+      co.type = 'date';
+    }
+    syncNightsFromDates();
+  });
+  co.addEventListener('change', () => {
+    if(co.value) co.type = 'date';
+    syncNightsFromDates();
+  });
+  function syncNightsFromDates(){
+    if(ci.value && co.value){
+      const diff = Math.round((new Date(co.value) - new Date(ci.value)) / 86400000);
+      if(diff >= 1){ nights = diff; render(); }
+    }
+  }
+})();
+
+/* pricing calculator */
+const RATE = 150000, FEE = 10000, USD_RATE = 300;
+let nights = 2;
+const fmtLKR = n => 'LKR ' + n.toLocaleString('en-US');
+const elNights = document.getElementById('nights');
+const elSub = document.getElementById('subtotal');
+const elTotal = document.getElementById('total');
+const elUsd = document.getElementById('usdEst');
+function render(){
+  const sub = RATE * nights, total = sub + FEE;
+  elNights.textContent = nights;
+  elSub.textContent = fmtLKR(sub);
+  elTotal.textContent = fmtLKR(total);
+  elUsd.textContent = 'Approx. USD ' + Math.round(total / USD_RATE).toLocaleString('en-US');
+}
+document.getElementById('plus').addEventListener('click', () => { nights++; render(); });
+document.getElementById('minus').addEventListener('click', () => { if(nights > 1){ nights--; render(); } });
+render();
+
+/* scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
