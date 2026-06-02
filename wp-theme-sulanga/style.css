@@ -395,6 +395,18 @@ h4 {
 .logo {
   line-height: 1;
   color: #fff;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Image logo (nav) */
+.logo .logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+.footer .logo .logo-img {
+  height: 56px;
 }
 
 .logo .ln1 {
@@ -2147,6 +2159,23 @@ textarea.input { resize: vertical; min-height: 100px; }
 
 @media (max-width: 900px) {
   .booking-grid > .card:last-child { position: static; top: auto; }
+}
+
+/* ============================================================
+   FULL WIDTH (ELEMENTOR) TEMPLATE
+   Edge-to-edge content + a solid header bar (no dark hero behind it).
+   ============================================================ */
+.site-main--fullwidth { width: 100%; }
+.page-template-page-fullwidth .nav,
+.page-template-page-fullwidth-php .nav {
+  position: relative;
+  top: 0;
+  background: var(--green-darker);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, .2);
+}
+.page-template-page-fullwidth .nav.scrolled,
+.page-template-page-fullwidth-php .nav.scrolled {
+  position: sticky;
 }
 
 /* About page "Sulanga Experience" sits on the green .experience section, so its

@@ -29,7 +29,7 @@
 
   <!-- PRELOADER -->
   <div id="preload">
-    <div class="pl-name">Sulaga</div>
+    <div class="pl-name">Sulanga</div>
     <div class="pl-line"></div>
   </div>
 
@@ -49,11 +49,10 @@
       <div class="topbar-right">
         <span class="ota-label">Also on</span>
         <a class="ota" href="https://www.booking.com/hotel/lk/sulanga.en-gb.html?aid=311984;label=sulanga-JZLQ1XtV*0pg8zWjTYuFMQS675410860977:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-2320764870709:lp9231269:li:dec:dm:ppccp=UmFuZG9tSVYkc2RlIyh9YbSsBl3MCvHsD8UKUHIRFxY;ws=&gad_source=1&gad_campaignid=8471304875&gbraid=0AAAAAD_Ls1IqVLg9A_lMQH19f4T_aLa21&gclid=Cj0KCQjw2_TQBhCnARIsAF3-XhwVI1CAdE7yz2Ak_c4qeXaMCojT3cRoHZv0fn6pRy6CYx0K2t2i--QaAtv0EALw_wcB" target="_blank" rel="noopener noreferrer" title="Book on Booking.com" aria-label="Book on Booking.com"><img src="https://www.google.com/s2/favicons?domain=booking.com&sz=128" alt="Booking.com" width="18" height="18" loading="lazy" /></a>
-        <a class="ota" href="https://www.tripadvisor.com/Hotel_Review-g608524-d33414792-Reviews-Sulaga_Luxury_Chalets-Nuwara_Eliya_Central_Province.html" target="_blank" rel="noopener noreferrer" title="Tripadvisor reviews" aria-label="Tripadvisor reviews"><img src="https://www.google.com/s2/favicons?domain=tripadvisor.com&sz=128" alt="Tripadvisor" width="18" height="18" loading="lazy" /></a>
         <a class="ota" href="https://en.planetofhotels.com/sri-lanka/nuwara-eliya/sulanga" target="_blank" rel="noopener noreferrer" title="Planet of Hotels" aria-label="Planet of Hotels"><img src="https://www.google.com/s2/favicons?domain=planetofhotels.com&sz=128" alt="Planet of Hotels" width="18" height="18" loading="lazy" /></a>
         <a class="ota" href="https://www.airbnb.com/rooms/882454172125576794" target="_blank" rel="noopener noreferrer" title="Book on Airbnb" aria-label="Book on Airbnb"><img src="https://www.google.com/s2/favicons?domain=airbnb.com&sz=128" alt="Airbnb" width="18" height="18" loading="lazy" /></a>
         <a class="ota" href="https://www.agoda.com/en-ie/sulanga/hotel/nuwara-eliya-lk.html" target="_blank" rel="noopener noreferrer" title="Book on Agoda" aria-label="Book on Agoda"><img src="https://www.google.com/s2/favicons?domain=agoda.com&sz=128" alt="Agoda" width="18" height="18" loading="lazy" /></a>
-        <a class="ota" href="https://www.expedia.com/Nuwara-Eliya-Hotels-Welcome-To-Sulaga-A-Hidden-Gem-Nestled-In-The-Hills-Of-Nuwara-Eliya.h98275948.Hotel-Information" target="_blank" rel="noopener noreferrer" title="Book on Expedia" aria-label="Book on Expedia"><img src="https://www.google.com/s2/favicons?domain=expedia.com&sz=128" alt="Expedia" width="18" height="18" loading="lazy" /></a>
+        <a class="ota" href="https://www.expedia.com/Nuwara-Eliya-Hotels-Welcome-To-Sulanga-A-Hidden-Gem-Nestled-In-The-Hills-Of-Nuwara-Eliya.h98275948.Hotel-Information" target="_blank" rel="noopener noreferrer" title="Book on Expedia" aria-label="Book on Expedia"><img src="https://www.google.com/s2/favicons?domain=expedia.com&sz=128" alt="Expedia" width="18" height="18" loading="lazy" /></a>
       </div>
     </div>
   </div>
@@ -61,7 +60,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><span class="ln1">Sulaga</span><span class="ln2">Luxury Chalets</span></a>
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo sulanga_upload_url( '2026/06/Untitled-design-4-e1780392976675.png' ); ?>" alt="Sulanga Luxury Chalets" class="logo-img" /></a>
       
       <?php
       if ( has_nav_menu( 'primary' ) ) {

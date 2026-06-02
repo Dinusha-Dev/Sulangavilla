@@ -1,6 +1,6 @@
 <?php
 /**
- * Sulaga Theme Functions and Definitions
+ * Sulanga Theme Functions and Definitions
  *
  * @package Sulanga
  */
@@ -37,6 +37,24 @@ if ( ! function_exists( 'sulanga_setup' ) ) :
       'style',
       'script',
     ) );
+
+    // Page builder / block editor friendliness (Elementor + Gutenberg):
+    // wide & full-bleed sections, responsive media, a logo control and
+    // selective-refresh widgets.
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'responsive-embeds' );
+    add_theme_support( 'custom-logo', array(
+      'height'      => 80,
+      'width'       => 220,
+      'flex-height' => true,
+      'flex-width'  => true,
+    ) );
+    add_theme_support( 'customize-selective-refresh-widgets' );
+
+    // Default content width (used by Elementor as the default content area).
+    if ( ! isset( $GLOBALS['content_width'] ) ) {
+      $GLOBALS['content_width'] = 1200;
+    }
   }
 endif;
 add_action( 'after_setup_theme', 'sulanga_setup' );
@@ -153,6 +171,22 @@ function sulanga_active_class( $slug ) {
 }
 
 /**
+ * Build a Media Library image URL from a path relative to wp-content/uploads.
+ *
+ * Keeps image URLs domain-agnostic: only the path/filename are hardcoded, while
+ * the domain comes from the live site. After migrating to the real domain the
+ * images keep working automatically (no broken dev-subdomain links), as long as
+ * the same files exist under wp-content/uploads with the same names.
+ *
+ * @param string $relative e.g. '2026/06/photo.jpg'
+ * @return string Escaped absolute URL on the current site.
+ */
+function sulanga_upload_url( $relative ) {
+  $uploads = wp_get_upload_dir();
+  return esc_url( trailingslashit( $uploads['baseurl'] ) . ltrim( $relative, '/' ) );
+}
+
+/**
  * Return image attachments from the Media Library for the gallery.
  *
  * @param int $limit Number of images (-1 for all).
@@ -217,7 +251,7 @@ function sulanga_render_amenities_carousel() {
     echo '<button type="button" class="am-arrow am-next" id="amNext" aria-label="Next image">&#8250;</button>';
     echo '<div class="am-dots" id="amDots"></div>';
   } else {
-    echo '<div class="am-track"><div class="am-slide"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Sulaga villa" /></div></div>';
+    echo '<div class="am-track"><div class="am-slide"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Sulanga villa" /></div></div>';
   }
   echo '</div>';
 }

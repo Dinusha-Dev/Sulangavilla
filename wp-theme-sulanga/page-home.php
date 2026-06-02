@@ -10,7 +10,7 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga Luxury Chalet" /></div>
+  <div class="hero-bg"><img src="<?php echo sulanga_upload_url( '2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png' ); ?>" alt="Sulanga Luxury Chalet" /></div>
   <div class="container">
     <div class="hero-content">
       <span class="hero-badge h-anim a1">Full Villa &bull; 5&ndash;6 Bedrooms &bull; Up to 15 Guests</span>
@@ -87,9 +87,9 @@ get_header();
   <div class="container">
     <div class="about-grid">
       <div class="about-text reveal">
-        <span class="eyebrow">About Sulaga</span>
+        <span class="eyebrow">About Sulanga</span>
         <h2>A Private Sanctuary<br>in the Heart of Nature</h2>
-        <p>Nestled in the misty highlands of Nuwara Eliya, Sulaga is a standalone luxury villa designed for those who value privacy, elegance and serenity.</p>
+        <p>Nestled in the misty highlands of Nuwara Eliya, Sulanga is a standalone luxury villa designed for those who value privacy, elegance and serenity.</p>
         <p>From breathtaking mountain views to a private plunge pool, every detail is thoughtfully curated to create a seamless and indulgent stay.</p>
         <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="btn btn-green">
           <span>Discover The Villa</span>
@@ -100,7 +100,7 @@ get_header();
       </div>
       <div class="about-img-wrap reveal d2">
         <div class="about-img">
-          <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/6VuYu3se3IEDlj8ORzHm374hWIBvr28x1BUkQPxK.jpg.jpeg" alt="Daytime Chalet Exterior" />
+          <img src="<?php echo sulanga_upload_url( '2026/06/6VuYu3se3IEDlj8ORzHm374hWIBvr28x1BUkQPxK.jpg.jpeg' ); ?>" alt="Daytime Chalet Exterior" />
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@ get_header();
 <section class="experience">
   <div class="container">
     <div class="experience-head reveal">
-      <span class="eyebrow">The Sulaga Experience</span>
+      <span class="eyebrow">The Sulanga Experience</span>
       <h2>One Villa. Complete Privacy. Pure Luxury.</h2>
     </div>
     <div class="experience-grid">
@@ -189,7 +189,7 @@ get_header();
   <div class="container">
     <div class="explore-head reveal">
       <div>
-        <span class="eyebrow">Explore Sulaga</span>
+        <span class="eyebrow">Explore Sulanga</span>
         <h2>Inside the Villa</h2>
       </div>
       <a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>" class="btn-gallery">
@@ -205,7 +205,7 @@ get_header();
     <div class="explore-grid">
       <!-- Item 1 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=exterior' ) ); ?>" class="explore-card reveal">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Exterior" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png' ); ?>" alt="Exterior" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -216,7 +216,7 @@ get_header();
       </a>
       <!-- Item 2 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=interior' ) ); ?>" class="explore-card reveal d1">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg" alt="Living Area" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg' ); ?>" alt="Living Area" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6M3 18h18" />
@@ -226,7 +226,7 @@ get_header();
       </a>
       <!-- Item 3 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=rooms' ) ); ?>" class="explore-card reveal d2">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/Izm9Fx7wtf3MoWYcHfMTDIdlAD5tOB1SP9zgjjoE.jpg.jpeg" alt="Bedroom" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/Izm9Fx7wtf3MoWYcHfMTDIdlAD5tOB1SP9zgjjoE.jpg.jpeg' ); ?>" alt="Bedroom" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -239,7 +239,7 @@ get_header();
       </a>
       <!-- Item 4 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=pool' ) ); ?>" class="explore-card reveal d3">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg" alt="Plunge Pool" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg' ); ?>" alt="Plunge Pool" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0" />
@@ -249,7 +249,7 @@ get_header();
       </a>
       <!-- Item 5 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=views' ) ); ?>" class="explore-card reveal d4">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/Jic2J5B3IjB6mMLr0rq5HdGdtxrSF85e37aXLxfi.jpg.jpeg" alt="Mountain Views" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/Jic2J5B3IjB6mMLr0rq5HdGdtxrSF85e37aXLxfi.jpg.jpeg' ); ?>" alt="Mountain Views" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
@@ -267,14 +267,14 @@ get_header();
     <div class="highlight-card reveal">
       <div class="hl-grid">
         <div class="hl-img-col">
-          <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga Luxury Villa landscape" />
+          <img src="<?php echo sulanga_upload_url( '2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png' ); ?>" alt="Sulanga Luxury Villa landscape" />
         </div>
         <div class="hl-text-col">
           <div class="hl-content-grid">
             <div class="hl-left-part">
               <div>
                 <span class="hl-badge">Entire Villa</span>
-                <h2>Sulaga Luxury Villa</h2>
+                <h2>Sulanga Luxury Villa</h2>
                 <p>A private hideaway in Nuwara Eliya with modern amenities, a private plunge pool, spacious living areas and panoramic mountain views.</p>
               </div>
               
@@ -378,17 +378,17 @@ get_header();
   document.addEventListener('DOMContentLoaded', function () {
     const ci = document.getElementById('checkin'), co = document.getElementById('checkout');
     const ciIso = document.getElementById('checkin-iso'), coIso = document.getElementById('checkout-iso');
-    if (!ci || !co || typeof SulagaCalendar === 'undefined' || typeof sulanga_cal_vars === 'undefined') return;
+    if (!ci || !co || typeof SulangaCalendar === 'undefined' || typeof sulanga_cal_vars === 'undefined') return;
 
-    const api = SulagaCalendar.attach({
+    const api = SulangaCalendar.attach({
       checkin: ci,
       checkout: co,
       onChange: function (inD, outD) {
-        if (ciIso) ciIso.value = inD ? SulagaCalendar.toISO(inD) : '';
-        if (coIso) coIso.value = outD ? SulagaCalendar.toISO(outD) : '';
+        if (ciIso) ciIso.value = inD ? SulangaCalendar.toISO(inD) : '';
+        if (coIso) coIso.value = outD ? SulangaCalendar.toISO(outD) : '';
       }
     });
-    SulagaCalendar.load(sulanga_cal_vars.ajax_url, function () { api.rerender(); });
+    SulangaCalendar.load(sulanga_cal_vars.ajax_url, function () { api.rerender(); });
   });
 
 </script>

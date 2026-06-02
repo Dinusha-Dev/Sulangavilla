@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><span class="ln1">Sulaga</span><span class="ln2">Luxury Chalets</span></a>
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo sulanga_upload_url( '2026/06/Untitled-design-4-e1780392976675.png' ); ?>" alt="Sulanga Luxury Chalets" class="logo-img" /></a>
           <p>A private luxury villa in Nuwara Eliya where nature, comfort, and premium service come together for the perfect escape.</p>
           <div class="socials">
             <a href="https://web.facebook.com/profile.php?id=100094612161439" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">

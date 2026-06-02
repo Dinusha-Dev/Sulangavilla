@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sulanga Booking & Reservation
  * Plugin URI: https://sulanga.com/booking-plugin
- * Description: Custom booking management, database logs, and checkouts for Sulaga Luxury Chalets.
+ * Description: Custom booking management, database logs, and checkouts for Sulanga Luxury Chalets.
  * Version: 1.0.0
  * Author: Antigravity
  * Author URI: https://google.com
@@ -18,6 +18,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'SULANGA_BOOKING_VERSION', '1.1.0' );
 define( 'SULANGA_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SULANGA_BOOKING_URL', plugin_dir_url( __FILE__ ) );
+
+/**
+ * Build a Media Library image URL from a path relative to wp-content/uploads.
+ * Keeps image URLs domain-agnostic so they survive a domain/server migration
+ * (only the domain changes; the upload path and filename stay the same).
+ */
+function sulanga_booking_upload_url( $relative ) {
+  $uploads = wp_get_upload_dir();
+  return esc_url( trailingslashit( $uploads['baseurl'] ) . ltrim( $relative, '/' ) );
+}
 
 /**
  * Register Custom Post Type for Bookings
@@ -55,7 +65,7 @@ function sulanga_booking_register_cpt() {
   
   $args = array(
     'label'                 => __( 'Booking', 'sulanga-booking' ),
-    'description'           => __( 'Reservation logs for Sulaga Luxury Chalets', 'sulanga-booking' ),
+    'description'           => __( 'Reservation logs for Sulanga Luxury Chalets', 'sulanga-booking' ),
     'labels'                => $labels,
     'supports'              => array( 'title' ),
     'hierarchical'          => false,
@@ -339,7 +349,7 @@ function sulanga_booking_form_shortcode() {
     <div class="card reveal d2">
       <div class="card-head"><h2 style="font-size:22px">Your Stay Summary</h2></div>
       <div class="sum-img">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg" alt="Entire villa" />
+        <img src="<?php echo sulanga_booking_upload_url( '2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg' ); ?>" alt="Entire villa" />
         <span class="sum-badge">Entire Villa</span>
       </div>
       <div class="sum-body">
@@ -500,7 +510,7 @@ function sulanga_booking_submit_ajax_handler() {
 
   $message_body = "
     <h2>New Reservation Received</h2>
-    <p>A new booking reservation has been submitted for Sulaga Luxury Chalets.</p>
+    <p>A new booking reservation has been submitted for Sulanga Luxury Chalets.</p>
     <table style='width:100%; border-collapse:collapse; font-family:sans-serif;'>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Booking ID</th><td style='padding:8px; border-bottom:1px solid #eee;'>#{$post_id}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Guest Name</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$fullname}</td></tr>
@@ -518,11 +528,11 @@ function sulanga_booking_submit_ajax_handler() {
   ";
 
   // Email to Guest
-  $guest_subject = 'Your Reservation Request at Sulaga Luxury Chalets';
+  $guest_subject = 'Your Reservation Request at Sulanga Luxury Chalets';
   $guest_message = "
     <h2>Thank You for Your Reservation Request</h2>
     <p>Hi {$fullname},</p>
-    <p>We have received your reservation request for Sulaga Luxury Chalets. Our operations team is verifying availability and will send a confirmation shortly.</p>
+    <p>We have received your reservation request for Sulanga Luxury Chalets. Our operations team is verifying availability and will send a confirmation shortly.</p>
     <h3>Your Reservation Summary</h3>
     <table style='width:100%; border-collapse:collapse; font-family:sans-serif;'>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Reference</th><td style='padding:8px; border-bottom:1px solid #eee;'>#{$post_id}</td></tr>
@@ -530,7 +540,7 @@ function sulanga_booking_submit_ajax_handler() {
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Guests</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$guests}</td></tr>
     </table>
     <p>If you have any questions, please contact us directly at rtissera@hotmail.com.</p>
-    <p>Best regards,<br/>The Sulaga Chalets Team</p>
+    <p>Best regards,<br/>The Sulanga Chalets Team</p>
   ";
 
   // Send notifications. Email delivery must never break a successful booking,

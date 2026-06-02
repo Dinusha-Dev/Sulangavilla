@@ -10,15 +10,11 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga villa at dusk" /></div>
+  <div class="hero-bg"><img src="<?php echo sulanga_upload_url( '2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png' ); ?>" alt="Sulanga villa at dusk" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">Book Your Stay</span>
     <h1 class="h-anim a2">Reserve Your<br/>Private Escape</h1>
     <p class="h-anim a3">Book the entire villa for an exclusive stay in Nuwara Eliya. One reservation. Total privacy. Unforgettable memories.</p>
-    <div class="hero-pill h-anim a4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      Entire villa booking only — no individual room reservations.
-    </div>
   </div>
 </header>
 

@@ -10,11 +10,11 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/GlO6wsGzZxEknSDvuSg14lvm92hxtAawjtF5BTPS.jpg.jpeg" alt="Sulaga villa exterior" /></div>
+  <div class="hero-bg"><img src="<?php echo sulanga_upload_url( '2026/06/GlO6wsGzZxEknSDvuSg14lvm92hxtAawjtF5BTPS.jpg.jpeg' ); ?>" alt="Sulanga villa exterior" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">About Us</span>
     <h1 class="h-anim a2">Where Luxury<br/>Meets Nature</h1>
-    <p class="h-anim a3">Sulaga is more than a stay — it's an experience of tranquility, sophistication and heartfelt hospitality, nestled in the breathtaking hills of Nuwara Eliya.</p>
+    <p class="h-anim a3">Sulanga is more than a stay — it's an experience of tranquility, sophistication and heartfelt hospitality, nestled in the breathtaking hills of Nuwara Eliya.</p>
   </div>
 </header>
 
@@ -25,7 +25,7 @@ get_header();
       <div class="story-text">
         <div class="eyebrow reveal">Our Story</div>
         <h2 class="reveal d1">Crafted for Comfort.<br/>Inspired by Nature.</h2>
-        <p class="reveal d2">Sulaga Luxury Chalets was created with a simple vision — to offer a sanctuary where modern luxury harmonizes seamlessly with the raw beauty of nature.</p>
+        <p class="reveal d2">Sulanga Luxury Chalets was created with a simple vision — to offer a sanctuary where modern luxury harmonizes seamlessly with the raw beauty of nature.</p>
         <p class="reveal d2">From the architecture to the smallest details, every element is thoughtfully curated to provide an unforgettable escape for discerning travelers.</p>
         <a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>" class="btn btn-green reveal d3">
           <span>Discover Our Chalets</span>
@@ -33,7 +33,7 @@ get_header();
         </a>
       </div>
       <div class="story-img reveal d2">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga chalet at dusk" />
+        <img src="<?php echo sulanga_upload_url( '2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png' ); ?>" alt="Sulanga chalet at dusk" />
       </div>
     </div>
   </div>
@@ -72,14 +72,14 @@ get_header();
   <div class="container">
     <div class="exp-grid">
       <div class="exp-collage reveal">
-        <div class="c1"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg" alt="Sulaga experience" /></div>
-        <div class="c2"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/F7NwWvZb8ctl8ePG4Wvw3zO0Z2zaJRvutC666gQX.jpg.jpeg" alt="Sulaga experience" /></div>
-        <div class="c3"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/LEEFC34w65UvDhHgzFLV0xywCrmebxFdMsi0Kqjf.jpg.jpeg" alt="Sulaga experience" /></div>
+        <div class="c1"><img src="<?php echo sulanga_upload_url( '2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg' ); ?>" alt="Sulanga experience" /></div>
+        <div class="c2"><img src="<?php echo sulanga_upload_url( '2026/06/F7NwWvZb8ctl8ePG4Wvw3zO0Z2zaJRvutC666gQX.jpg.jpeg' ); ?>" alt="Sulanga experience" /></div>
+        <div class="c3"><img src="<?php echo sulanga_upload_url( '2026/06/LEEFC34w65UvDhHgzFLV0xywCrmebxFdMsi0Kqjf.jpg.jpeg' ); ?>" alt="Sulanga experience" /></div>
       </div>
       <div class="exp-text">
-        <div class="eyebrow reveal">The Sulaga Experience</div>
+        <div class="eyebrow reveal">The Sulanga Experience</div>
         <h2 class="reveal d1">A Retreat for the<br/>Soul and Senses</h2>
-        <p class="reveal d2">Wake up to misty mornings, unwind by your private plunge pool, and soak in breathtaking views from your balcony. At Sulaga, every moment is designed to help you reconnect — with nature, with loved ones, and with yourself.</p>
+        <p class="reveal d2">Wake up to misty mornings, unwind by your private plunge pool, and soak in breathtaking views from your balcony. At Sulanga, every moment is designed to help you reconnect — with nature, with loved ones, and with yourself.</p>
         <ul class="exp-checks">
           <li class="reveal d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Private chalets with modern amenities</li>
           <li class="reveal d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Stunning views of mountains and lake</li>

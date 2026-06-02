@@ -10,11 +10,11 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/eGhLj1JB6hbTewWWnlnpYryAVSnr8FS4Kdwk11Qx.jpg.jpeg" alt="Sulaga villa at dusk" /></div>
+  <div class="hero-bg"><img src="<?php echo sulanga_upload_url( '2026/06/eGhLj1JB6hbTewWWnlnpYryAVSnr8FS4Kdwk11Qx.jpg.jpeg' ); ?>" alt="Sulanga villa at dusk" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">Gallery</span>
     <h1 class="h-anim a2">Moments of<br/>Tranquility</h1>
-    <p class="h-anim a3">Explore the beauty, comfort, and experiences that make Sulaga Luxury Chalets a truly unforgettable escape.</p>
+    <p class="h-anim a3">Explore the beauty, comfort, and experiences that make Sulanga Luxury Chalets a truly unforgettable escape.</p>
   </div>
 </header>
 

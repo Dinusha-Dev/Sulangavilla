@@ -10,7 +10,7 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg" alt="Sulaga villa exterior" /></div>
+  <div class="hero-bg"><img src="<?php echo sulanga_upload_url( '2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg' ); ?>" alt="Sulanga villa exterior" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">Contact Us</span>
     <h1 class="h-anim a2">We're Here to<br/>Make Your Stay<br/>Extraordinary</h1>
@@ -27,7 +27,7 @@ get_header();
       <!-- LEFT: GET IN TOUCH -->
       <div class="contact-info-col reveal">
         <h2>Get In Touch</h2>
-        <p>Our team is always happy to assist you with reservations, special requests, or any inquiries about Sulaga Luxury Chalets.</p>
+        <p>Our team is always happy to assist you with reservations, special requests, or any inquiries about Sulanga Luxury Chalets.</p>
         
         <div class="info-list">
           <div class="info-item">
@@ -135,7 +135,7 @@ get_header();
 <!-- MAP SECTION -->
 
 <section class="map-sec reveal">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6473646206564!2d80.7790385!3d6.932683299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae381cc78649661%3A0x9d22f3aede57297c!2sSulaga%20Luxury%20Chalets!5e0!3m2!1sen!2slk!4v1780384609848!5m2!1sen!2slk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6473646206564!2d80.7790385!3d6.932683299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae381cc78649661%3A0x9d22f3aede57297c!2sSulanga%20Luxury%20Chalets!5e0!3m2!1sen!2slk!4v1780384609848!5m2!1sen!2slk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   
   <div class="map-card">
     <div class="map-card-info">
@@ -143,7 +143,7 @@ get_header();
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div>
-        <h4>Sulaga Luxury Chalets</h4>
+        <h4>Sulanga Luxury Chalets</h4>
         <p>Nuwara Eliya, Sri Lanka</p>
       </div>
     </div>
