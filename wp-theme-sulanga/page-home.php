@@ -10,10 +10,10 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulanga Luxury Chalet" /></div>
+  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga Luxury Chalet" /></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-badge h-anim a1">Full Villa &bull; 18 Pax Max</span>
+      <span class="hero-badge h-anim a1">Full Villa &bull; 5&ndash;6 Bedrooms &bull; Up to 15 Guests</span>
       <h1 class="h-anim a2">Your Private<br>Luxury Escape in<br>Nuwara Eliya</h1>
       <p class="h-anim a3">A single, exclusive villa surrounded by mountains, crafted for privacy, comfort and unforgettable moments—only for you.</p>
       <div class="hero-cursive h-anim a4">Unwind. Reconnect. Belong.</div>
@@ -49,17 +49,16 @@ get_header();
           </div>
         </div>
         <div class="booking-field">
-          <label for="guests">Guests</label>
+          <label for="bedrooms">Bedrooms &amp; Occupancy</label>
           <div class="field-inner">
-            <select name="guests" id="guests">
-              <?php for ( $g = 2; $g <= 18; $g++ ) : ?>
-                <option value="<?php echo esc_attr( $g ); ?>"><?php echo esc_html( $g ); ?> Guests</option>
-              <?php endfor; ?>
+            <select name="bedrooms" id="bedrooms">
+              <option value="6">6 Bedrooms &mdash; Up to 15 Guests</option>
+              <option value="5">5 Bedrooms &mdash; Up to 13 Guests</option>
             </select>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              <path d="M2 9V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4" />
+              <path d="M2 11h20v6M2 17v2M22 17v2" />
+              <path d="M6 9V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1M13 9V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1" />
             </svg>
           </div>
         </div>
@@ -88,10 +87,10 @@ get_header();
   <div class="container">
     <div class="about-grid">
       <div class="about-text reveal">
-        <span class="eyebrow">About Sulanga</span>
+        <span class="eyebrow">About Sulaga</span>
         <h2>A Private Sanctuary<br>in the Heart of Nature</h2>
-        <p>Nestled in the misty highlands of Nuwara Eliya, Sulanga is a standalone luxury villa designed for those who value privacy, elegance and serenity.</p>
-        <p>From breathtaking mountain views to a private infinity pool, every detail is thoughtfully curated to create a seamless and indulgent stay.</p>
+        <p>Nestled in the misty highlands of Nuwara Eliya, Sulaga is a standalone luxury villa designed for those who value privacy, elegance and serenity.</p>
+        <p>From breathtaking mountain views to a private plunge pool, every detail is thoughtfully curated to create a seamless and indulgent stay.</p>
         <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="btn btn-green">
           <span>Discover The Villa</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -112,7 +111,7 @@ get_header();
 <section class="experience">
   <div class="container">
     <div class="experience-head reveal">
-      <span class="eyebrow">The Sulanga Experience</span>
+      <span class="eyebrow">The Sulaga Experience</span>
       <h2>One Villa. Complete Privacy. Pure Luxury.</h2>
     </div>
     <div class="experience-grid">
@@ -121,7 +120,7 @@ get_header();
         <div class="exp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0" />
           </svg></div>
-        <h3>Private Infinity Pool</h3>
+        <h3>Private Plunge Pool</h3>
         <p>All yours, all the time.</p>
       </div>
       <!-- Card 2 -->
@@ -190,7 +189,7 @@ get_header();
   <div class="container">
     <div class="explore-head reveal">
       <div>
-        <span class="eyebrow">Explore Sulanga</span>
+        <span class="eyebrow">Explore Sulaga</span>
         <h2>Inside the Villa</h2>
       </div>
       <a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>" class="btn-gallery">
@@ -240,12 +239,12 @@ get_header();
       </a>
       <!-- Item 4 -->
       <a href="<?php echo esc_url( home_url( '/gallery/?filter=pool' ) ); ?>" class="explore-card reveal d3">
-        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg" alt="Private Pool" />
+        <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/A18b0EvjwP5wDqu0xz9bmTOTGQYO1d9YfroLI21a.jpg.jpeg" alt="Plunge Pool" />
         <div class="explore-card-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2M6 12V5a2 2 0 0 1 4 0" />
           </svg>
-          <span>Private Pool</span>
+          <span>Plunge Pool</span>
         </div>
       </a>
       <!-- Item 5 -->
@@ -268,15 +267,15 @@ get_header();
     <div class="highlight-card reveal">
       <div class="hl-grid">
         <div class="hl-img-col">
-          <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulanga Luxury Villa landscape" />
+          <img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga Luxury Villa landscape" />
         </div>
         <div class="hl-text-col">
           <div class="hl-content-grid">
             <div class="hl-left-part">
               <div>
                 <span class="hl-badge">Entire Villa</span>
-                <h2>Sulanga Luxury Villa</h2>
-                <p>A private hideaway in Nuwara Eliya with modern amenities, a private pool, spacious living areas and panoramic mountain views.</p>
+                <h2>Sulaga Luxury Villa</h2>
+                <p>A private hideaway in Nuwara Eliya with modern amenities, a private plunge pool, spacious living areas and panoramic mountain views.</p>
               </div>
               
               <div class="hl-pricing-list">
@@ -309,13 +308,13 @@ get_header();
               <ul class="hl-features">
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12" />
-                  </svg> Up to 18 Guests</li>
+                  </svg> Up to 15 Guests</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12" />
-                  </svg> 2 Bedrooms</li>
+                  </svg> 5 or 6 Bedrooms</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12" />
-                  </svg> Private Infinity Pool</li>
+                  </svg> Private Plunge Pool</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12" />
                   </svg> Full Kitchen</li>
@@ -344,60 +343,15 @@ get_header();
 <!-- GUEST EXPERIENCES -->
 <section class="testimonials">
   <div class="container">
-    <div class="testimonials-head reveal">
+    <div class="testimonials-head reveal" style="justify-content:center; text-align:center;">
       <div>
         <span class="eyebrow">Guest Experiences</span>
         <h2>Loved by Our Guests</h2>
       </div>
-      <div class="carousel-controls">
-        <button id="testiPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M15 18l-6-6 6-6" />
-          </svg></button>
-        <button id="testiNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 18l6-6-6-6" />
-          </svg></button>
-      </div>
     </div>
 
-    <div class="testimonials-wrapper">
-      <div class="testimonials-grid" id="testiTrack">
-        <!-- Testimonial 1 -->
-        <div class="testi-card reveal">
-          <div class="quote-ic">“</div>
-          <blockquote>The villa is breathtaking! The views, the privacy and the pool made our stay unforgettable. Perfect getaway for couples.</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Rachel & David" />
-            <div>
-              <span class="author-name">Rachel & David</span>
-              <span class="author-location">Australia</span>
-            </div>
-          </div>
-        </div>
-        <!-- Testimonial 2 -->
-        <div class="testi-card reveal d1">
-          <div class="quote-ic">“</div>
-          <blockquote>From the moment we arrived, everything was perfect. The villa is even more beautiful in person. Highly recommend Sulanga!</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Tharindu & Family" />
-            <div>
-              <span class="author-name">Tharindu & Family</span>
-              <span class="author-location">Sri Lanka</span>
-            </div>
-          </div>
-        </div>
-        <!-- Testimonial 3 -->
-        <div class="testi-card reveal d2">
-          <div class="quote-ic">“</div>
-          <blockquote>Peaceful, luxurious and private—exactly what we needed. We will definitely be coming back!</blockquote>
-          <div class="testi-author">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Ananya & Friends" />
-            <div>
-              <span class="author-name">Ananya & Friends</span>
-              <span class="author-location">Singapore</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="testimonials-reviews reveal d1">
+      <?php echo do_shortcode( '[grw id=158]' ); ?>
     </div>
   </div>
 </section>
@@ -424,81 +378,19 @@ get_header();
   document.addEventListener('DOMContentLoaded', function () {
     const ci = document.getElementById('checkin'), co = document.getElementById('checkout');
     const ciIso = document.getElementById('checkin-iso'), coIso = document.getElementById('checkout-iso');
-    if (!ci || !co || typeof SulangaCalendar === 'undefined' || typeof sulanga_cal_vars === 'undefined') return;
+    if (!ci || !co || typeof SulagaCalendar === 'undefined' || typeof sulanga_cal_vars === 'undefined') return;
 
-    const api = SulangaCalendar.attach({
+    const api = SulagaCalendar.attach({
       checkin: ci,
       checkout: co,
       onChange: function (inD, outD) {
-        if (ciIso) ciIso.value = inD ? SulangaCalendar.toISO(inD) : '';
-        if (coIso) coIso.value = outD ? SulangaCalendar.toISO(outD) : '';
+        if (ciIso) ciIso.value = inD ? SulagaCalendar.toISO(inD) : '';
+        if (coIso) coIso.value = outD ? SulagaCalendar.toISO(outD) : '';
       }
     });
-    SulangaCalendar.load(sulanga_cal_vars.ajax_url, function () { api.rerender(); });
+    SulagaCalendar.load(sulanga_cal_vars.ajax_url, function () { api.rerender(); });
   });
 
-  /* guest testimonials slider */
-  (function () {
-    const track = document.getElementById('testiTrack');
-    const cards = document.querySelectorAll('.testi-card');
-    const btnPrev = document.getElementById('testiPrev');
-    const btnNext = document.getElementById('testiNext');
-    if (!track || !btnPrev || !btnNext) return;
-    let index = 0;
-
-    function getItemsPerView() {
-      if (window.innerWidth <= 768) return 1;
-      if (window.innerWidth <= 1024) return 2;
-      return 3;
-    }
-
-    function updateSlider() {
-      const itemsPerView = getItemsPerView();
-      const maxIndex = cards.length - itemsPerView;
-      if (index > maxIndex) index = maxIndex;
-      if (index < 0) index = 0;
-
-      if (cards.length > 0) {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 24;
-        const offset = index * (cardWidth + gap);
-        track.style.transform = `translateX(-${offset}px)`;
-      }
-
-      // Hide navigation controls on desktop or when items are not scrollable
-      if (maxIndex <= 0) {
-        btnPrev.style.display = 'none';
-        btnNext.style.display = 'none';
-      } else {
-        btnPrev.style.display = 'flex';
-        btnNext.style.display = 'flex';
-        
-        // Disable/style buttons based on bounds
-        btnPrev.style.opacity = index === 0 ? '0.4' : '1';
-        btnPrev.style.pointerEvents = index === 0 ? 'none' : 'auto';
-        btnNext.style.opacity = index === maxIndex ? '0.4' : '1';
-        btnNext.style.pointerEvents = index === maxIndex ? 'none' : 'auto';
-      }
-    }
-
-    btnPrev.addEventListener('click', () => {
-      if (index > 0) {
-        index--;
-        updateSlider();
-      }
-    });
-
-    btnNext.addEventListener('click', () => {
-      const itemsPerView = getItemsPerView();
-      if (index < cards.length - itemsPerView) {
-        index++;
-        updateSlider();
-      }
-    });
-
-    window.addEventListener('resize', updateSlider);
-    updateSlider();
-  })();
 </script>
 
 <?php

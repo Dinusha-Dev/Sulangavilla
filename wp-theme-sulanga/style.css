@@ -28,7 +28,7 @@ Text Domain: sulanga
   --green-card: #0b2214;
   --green: #1f4a2c; /* Main green accent */
   --green-btn: #1f4a2c;
-  --green-mid: #3a8055; /* Mid forest green */
+  --green-mid: #2f7d4f; /* Mid emerald green */
   --cream: #f7f6f2; /* Light cream page background */
   --gray: #e2e4e0;
   --text: #26271f; /* Dark charcoal text */
@@ -215,7 +215,7 @@ h4 {
   padding: 14px 26px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 9px;
   transition: .35s var(--ease);
 }
 
@@ -232,14 +232,16 @@ h4 {
 }
 
 .btn-green {
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 30px -14px rgba(31, 74, 44, .55);
 }
 
 .btn-green:hover {
-  background: var(--green-mid);
+  background: linear-gradient(135deg, #235936 0%, #36925d 100%);
   transform: translateY(-2px);
+  box-shadow: 0 18px 36px -14px rgba(31, 74, 44, .6);
 }
 
 .btn-green:hover svg {
@@ -275,6 +277,27 @@ h4 {
 .btn-outline svg {
   width: 14px;
   height: 14px;
+}
+
+/* Navigation action buttons (Contact Us + Book Now) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-nav {
+  padding: 12px 20px;
+  font-size: 12.5px;
+}
+.btn-nav.btn-outline {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .38);
+  color: #fff;
+}
+.btn-nav.btn-outline:hover {
+  background: rgba(255, 255, 255, .16);
+  border-color: #fff;
+  transform: translateY(-2px);
 }
 
 /* ============================================================
@@ -316,12 +339,38 @@ h4 {
 .topbar-right {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  gap: 7px;
 }
 
-.topbar-right svg {
-  width: 11px;
+.topbar-right .ota-label {
+  opacity: .65;
+  font-size: 11.5px;
+  letter-spacing: .04em;
+  margin-right: 2px;
+}
+
+.topbar-right .ota {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.topbar-right .ota img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.topbar-right .ota:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -4px rgba(0, 0, 0, .5);
 }
 
 /* ============================================================
@@ -398,8 +447,11 @@ h4 {
 .nav.scrolled {
   position: fixed;
   top: 0;
-  background: var(--green-darker);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, .28);
+  background: rgba(5, 18, 10, .82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
 }
 
 .nav.scrolled .container {
@@ -1340,8 +1392,9 @@ h4 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr 1.5fr;
+  grid-template-columns: 1.7fr 1fr 1fr 1.3fr 1.5fr;
   gap: 40px;
+  align-items: start;
   padding-bottom: 50px;
 }
 
@@ -1436,9 +1489,19 @@ h4 {
   color: var(--gold);
 }
 
+.footer-col.newsletter {
+  padding-left: 28px;
+}
+
 .newsletter p {
   margin-bottom: 16px;
   line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .footer-col.newsletter {
+    padding-left: 0;
+  }
 }
 
 .newsletter-form {
@@ -1827,6 +1890,14 @@ textarea.input { resize: vertical; min-height: 100px; }
     display: block;
   }
 
+  /* On mobile keep only the Book Now CTA in the bar (Contact Us is in the menu). */
+  .btn-nav.btn-outline {
+    display: none;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+
   .hero h1 {
     font-size: 38px;
   }
@@ -2032,7 +2103,8 @@ textarea.input { resize: vertical; min-height: 100px; }
 .am-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: center; }
 
 /* House rules & cancellation */
-.rules-sec { padding: 80px 0; }
+.rules-sec { padding: 80px 0; scroll-margin-top: 130px; }
+.rules-card[id] { scroll-margin-top: 130px; }
 .rules-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; }
 .rules-card { background: #fff; border: 1px solid #ece9df; border-radius: 14px; padding: 34px; box-shadow: 0 18px 40px -28px rgba(0,0,0,.25); }
 .rules-card h3 { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 23px; color: var(--green-dark); margin-bottom: 18px; }
@@ -2052,6 +2124,16 @@ textarea.input { resize: vertical; min-height: 100px; }
    BOOKING PAGE — MODERN POLISH
    ============================================================ */
 .booking-sec { padding: 74px 0; background: linear-gradient(180deg, #f6f5f0 0%, #ffffff 55%); }
+/* Two-column date row (Guests field removed) */
+.field-row.two-col { grid-template-columns: 1fr 1fr; }
+/* Modern select styling for the booking form (custom chevron, no native arrow) */
+.form-body select.input {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  padding-right: 40px; cursor: pointer;
+}
+.form-body .with-ic svg { transition: color .25s; }
+.form-body .input:hover { border-color: #c7c2b4; }
+#room-option { font-weight: 500; }
 .booking-grid .card { border-radius: 16px; box-shadow: 0 30px 70px -36px rgba(8, 29, 17, .22); border: 1px solid rgba(8, 29, 17, .05); }
 /* Keep the summary in view while filling the form (desktop only). */
 .booking-grid > .card:last-child { position: sticky; top: 104px; }
@@ -2073,3 +2155,7 @@ textarea.input { resize: vertical; min-height: 100px; }
 .experience .exp-text > p { color: rgba(255, 255, 255, .82); }
 .experience .exp-checks li { color: rgba(255, 255, 255, .9); }
 .experience .exp-checks svg { color: var(--gold-soft); }
+
+/* Google reviews widget container (homepage testimonials) */
+.testimonials-reviews { margin-top: 12px; }
+.testimonials-reviews img { display: inline-block; }

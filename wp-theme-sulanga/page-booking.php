@@ -10,7 +10,7 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulanga villa at dusk" /></div>
+  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/ChatGPT-Image-Jun-1-2026-10_09_17-PM.png" alt="Sulaga villa at dusk" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">Book Your Stay</span>
     <h1 class="h-anim a2">Reserve Your<br/>Private Escape</h1>
@@ -77,10 +77,10 @@ get_header();
 </section>
 
 <!-- HOUSE RULES & CANCELLATION -->
-<section class="rules-sec">
+<section class="rules-sec" id="house-rules">
   <div class="container">
     <div class="rules-grid">
-      <div class="rules-card reveal">
+      <div class="rules-card reveal" id="house-rules-card">
         <h3>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
           House Rules
@@ -92,7 +92,7 @@ get_header();
           <li>There is no age requirement for check-in.</li>
         </ul>
       </div>
-      <div class="rules-card reveal d1">
+      <div class="rules-card reveal d1" id="cancellation">
         <h3>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           Cancellation

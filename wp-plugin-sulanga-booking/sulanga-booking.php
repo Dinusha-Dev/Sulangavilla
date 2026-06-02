@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sulanga Booking & Reservation
  * Plugin URI: https://sulanga.com/booking-plugin
- * Description: Custom booking management, database logs, and checkouts for Sulanga Luxury Chalets.
+ * Description: Custom booking management, database logs, and checkouts for Sulaga Luxury Chalets.
  * Version: 1.0.0
  * Author: Antigravity
  * Author URI: https://google.com
@@ -55,7 +55,7 @@ function sulanga_booking_register_cpt() {
   
   $args = array(
     'label'                 => __( 'Booking', 'sulanga-booking' ),
-    'description'           => __( 'Reservation logs for Sulanga Luxury Chalets', 'sulanga-booking' ),
+    'description'           => __( 'Reservation logs for Sulaga Luxury Chalets', 'sulanga-booking' ),
     'labels'                => $labels,
     'supports'              => array( 'title' ),
     'hierarchical'          => false,
@@ -273,7 +273,7 @@ function sulanga_booking_form_shortcode() {
       
       <form class="form-body" id="sulanga-booking-form-el">
         <div id="sulanga-booking-msg" class="booking-msg" role="status" aria-live="polite" hidden></div>
-        <div class="field-row">
+        <div class="field-row two-col">
           <div class="field">
             <label for="checkin">Check-in Date</label>
             <div class="with-ic">
@@ -288,16 +288,15 @@ function sulanga_booking_form_shortcode() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             </div>
           </div>
-          <div class="field">
-            <label for="guests-select">Guests</label>
-            <div class="with-ic">
-              <select id="guests-select" class="input">
-                <?php for ( $g = 2; $g <= 18; $g++ ) : ?>
-                  <option value="<?php echo esc_attr( $g ); ?>"><?php echo esc_html( $g ); ?> Guests</option>
-                <?php endfor; ?>
-              </select>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
+        </div>
+        <div class="field">
+          <label for="room-option">Bedrooms &amp; Occupancy</label>
+          <div class="with-ic">
+            <select id="room-option" class="input">
+              <option value="6" data-bed="6" data-max="15">6 Bedrooms &mdash; Up to 15 Guests</option>
+              <option value="5" data-bed="5" data-max="13">5 Bedrooms &mdash; Up to 13 Guests</option>
+            </select>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4"/><path d="M2 11h20v6M2 17v2M22 17v2"/><path d="M6 9V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1M13 9V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1"/></svg>
           </div>
         </div>
         <div class="field">
@@ -347,10 +346,10 @@ function sulanga_booking_form_shortcode() {
         <h3>Entire Villa</h3>
         <ul class="sum-meta">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Nuwara Eliya, Sri Lanka</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Up to 18 Guests</li>
+          <li id="sum-capacity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> <span id="sum-capacity-text">6 Bedrooms &middot; Up to 15 Guests</span></li>
         </ul>
         <ul class="sum-feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Private Pool</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Plunge Pool</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Living &amp; Dining Area</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Mountain Views</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Balcony &amp; Terrace</li>
@@ -418,6 +417,19 @@ function sulanga_booking_submit_ajax_handler() {
   $checkin   = sanitize_text_field( wp_unslash( $_POST['checkin'] ?? '' ) );
   $checkout  = sanitize_text_field( wp_unslash( $_POST['checkout'] ?? '' ) );
   $guests    = sanitize_text_field( wp_unslash( $_POST['guests'] ?? '' ) );
+  $bedrooms  = intval( $_POST['bedrooms'] ?? 6 );
+  // Only two configured options: 5 bedrooms (≤13 guests) or 6 bedrooms (≤15).
+  if ( 5 === $bedrooms ) {
+    $max_guests = 13;
+  } else {
+    $bedrooms   = 6;
+    $max_guests = 15;
+  }
+  $guests_int = intval( $guests );
+  // No separate guest field on the form — default to the option's max occupancy.
+  if ( $guests_int < 1 || $guests_int > $max_guests ) {
+    $guests = (string) $max_guests;
+  }
   $fullname  = sanitize_text_field( wp_unslash( $_POST['fullname'] ?? '' ) );
   $email     = sanitize_email( wp_unslash( $_POST['email'] ?? '' ) );
   $country   = sanitize_text_field( wp_unslash( $_POST['country_code'] ?? '' ) );
@@ -470,6 +482,7 @@ function sulanga_booking_submit_ajax_handler() {
   update_post_meta( $post_id, '_checkin', $checkin );
   update_post_meta( $post_id, '_checkout', $checkout );
   update_post_meta( $post_id, '_guests', $guests );
+  update_post_meta( $post_id, '_bedrooms', $bedrooms );
   update_post_meta( $post_id, '_email', $email );
   update_post_meta( $post_id, '_phone', $country . ' ' . $phone );
   update_post_meta( $post_id, '_requests', $requests );
@@ -487,13 +500,14 @@ function sulanga_booking_submit_ajax_handler() {
 
   $message_body = "
     <h2>New Reservation Received</h2>
-    <p>A new booking reservation has been submitted for Sulanga Luxury Chalets.</p>
+    <p>A new booking reservation has been submitted for Sulaga Luxury Chalets.</p>
     <table style='width:100%; border-collapse:collapse; font-family:sans-serif;'>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Booking ID</th><td style='padding:8px; border-bottom:1px solid #eee;'>#{$post_id}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Guest Name</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$fullname}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Check-in</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$checkin}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Check-out</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$checkout}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Nights</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$nights}</td></tr>
+      <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Bedrooms</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$bedrooms}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Guests</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$guests}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Contact Phone</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$country} {$phone}</td></tr>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Email</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$email}</td></tr>
@@ -504,11 +518,11 @@ function sulanga_booking_submit_ajax_handler() {
   ";
 
   // Email to Guest
-  $guest_subject = 'Your Reservation Request at Sulanga Luxury Chalets';
+  $guest_subject = 'Your Reservation Request at Sulaga Luxury Chalets';
   $guest_message = "
     <h2>Thank You for Your Reservation Request</h2>
     <p>Hi {$fullname},</p>
-    <p>We have received your reservation request for Sulanga Luxury Chalets. Our operations team is verifying availability and will send a confirmation shortly.</p>
+    <p>We have received your reservation request for Sulaga Luxury Chalets. Our operations team is verifying availability and will send a confirmation shortly.</p>
     <h3>Your Reservation Summary</h3>
     <table style='width:100%; border-collapse:collapse; font-family:sans-serif;'>
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Reference</th><td style='padding:8px; border-bottom:1px solid #eee;'>#{$post_id}</td></tr>
@@ -516,7 +530,7 @@ function sulanga_booking_submit_ajax_handler() {
       <tr><th style='text-align:left; padding:8px; border-bottom:1px solid #eee;'>Guests</th><td style='padding:8px; border-bottom:1px solid #eee;'>{$guests}</td></tr>
     </table>
     <p>If you have any questions, please contact us directly at rtissera@hotmail.com.</p>
-    <p>Best regards,<br/>The Sulanga Chalets Team</p>
+    <p>Best regards,<br/>The Sulaga Chalets Team</p>
   ";
 
   // Send notifications. Email delivery must never break a successful booking,

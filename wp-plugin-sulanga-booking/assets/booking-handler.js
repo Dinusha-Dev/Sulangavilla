@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ci = document.getElementById('checkin');
   const co = document.getElementById('checkout');
-  const guestsSelect = document.getElementById('guests-select');
+  const roomSelect = document.getElementById('room-option');
+  const sumCapacity = document.getElementById('sum-capacity-text');
   const elNights = document.getElementById('nights');
   const elRateRow = document.getElementById('rateRow');
   const elNightlyRate = document.getElementById('nightlyRate');
@@ -56,6 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elTotal) elTotal.textContent = fmtPrice(total);
   }
 
+  // Bedrooms & occupancy option — sets the capacity (no separate guest field).
+  let bedrooms = roomSelect ? parseInt(roomSelect.value, 10) : 6;
+  let maxGuests = 15;
+  function applyRoomOption() {
+    if (!roomSelect) return;
+    const opt = roomSelect.selectedOptions[0];
+    bedrooms = parseInt(opt.getAttribute('data-bed'), 10) || 6;
+    maxGuests = parseInt(opt.getAttribute('data-max'), 10) || 15;
+    if (sumCapacity) sumCapacity.textContent = bedrooms + ' Bedrooms · Up to ' + maxGuests + ' Guests';
+  }
+  if (roomSelect) {
+    roomSelect.addEventListener('change', applyRoomOption);
+    applyRoomOption();
+  }
+
   // Currency selector (LKR / USD) — also used as the payment currency.
   if (currencyToggle) {
     currencyToggle.addEventListener('click', function (e) {
@@ -95,11 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const ciP = params.get('checkin');
     const coP = params.get('checkout');
-    const gP = params.get('guests');
-    if (gP) {
-      for (let i = 0; i < guestsSelect.options.length; i++) {
-        if (guestsSelect.options[i].value.startsWith(gP)) { guestsSelect.selectedIndex = i; break; }
+    const bP = params.get('bedrooms');
+    if (bP && roomSelect) {
+      for (let i = 0; i < roomSelect.options.length; i++) {
+        if (roomSelect.options[i].value === String(bP)) { roomSelect.selectedIndex = i; break; }
       }
+      applyRoomOption();
     }
     if (ciP && /^\d{4}-\d{2}-\d{2}$/.test(ciP)) {
       const inD = SulangaCalendar.parseISO(ciP);
@@ -172,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('nonce', sulanga_booking_vars.nonce);
     formData.append('checkin', SulangaCalendar.toISO(selectedIn));
     formData.append('checkout', SulangaCalendar.toISO(selectedOut));
-    formData.append('guests', guestsSelect.value);
+    formData.append('guests', maxGuests);
+    formData.append('bedrooms', bedrooms);
     formData.append('fullname', document.getElementById('fullname').value);
     formData.append('email', emailVal);
     formData.append('country_code', document.getElementById('phone-country').value);

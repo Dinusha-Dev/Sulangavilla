@@ -10,7 +10,7 @@ get_header();
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg" alt="Sulanga villa exterior" /></div>
+  <div class="hero-bg"><img src="https://nuwaraeliyahotel.esupportdev2.xyz/wp-content/uploads/2026/06/gMhafAjEDGeoUl1Lf5XaLW0SYDquwBUUd8m4BH0z.jpg.jpeg" alt="Sulaga villa exterior" /></div>
   <div class="container">
     <span class="eyebrow h-anim a1">Contact Us</span>
     <h1 class="h-anim a2">We're Here to<br/>Make Your Stay<br/>Extraordinary</h1>
@@ -27,7 +27,7 @@ get_header();
       <!-- LEFT: GET IN TOUCH -->
       <div class="contact-info-col reveal">
         <h2>Get In Touch</h2>
-        <p>Our team is always happy to assist you with reservations, special requests, or any inquiries about Sulanga Luxury Chalets.</p>
+        <p>Our team is always happy to assist you with reservations, special requests, or any inquiries about Sulaga Luxury Chalets.</p>
         
         <div class="info-list">
           <div class="info-item">
@@ -36,17 +36,7 @@ get_header();
             </div>
             <div class="content">
               <label>For Reservations</label>
-              <span>076 073 0139</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="content">
-              <label>For Operations</label>
-              <span>077 248 7000</span>
+              <span>+94 77 248 7000</span>
             </div>
           </div>
 
@@ -145,7 +135,7 @@ get_header();
 <!-- MAP SECTION -->
 
 <section class="map-sec reveal">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.97825026938!2d80.7718919659021!3d6.971638166542795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae380ed5aa5a05b%3A0x67db2371c6670868!2sNuwara%20Eliya!5e0!3m2!1sen!2slk!4v1680000000000!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6473646206564!2d80.7790385!3d6.932683299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae381cc78649661%3A0x9d22f3aede57297c!2sSulaga%20Luxury%20Chalets!5e0!3m2!1sen!2slk!4v1780384609848!5m2!1sen!2slk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   
   <div class="map-card">
     <div class="map-card-info">
@@ -153,7 +143,7 @@ get_header();
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div>
-        <h4>Sulanga Luxury Chalets</h4>
+        <h4>Sulaga Luxury Chalets</h4>
         <p>Nuwara Eliya, Sri Lanka</p>
       </div>
     </div>

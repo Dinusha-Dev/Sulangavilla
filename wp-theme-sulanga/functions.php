@@ -1,6 +1,6 @@
 <?php
 /**
- * Sulanga Theme Functions and Definitions
+ * Sulaga Theme Functions and Definitions
  *
  * @package Sulanga
  */
@@ -177,16 +177,16 @@ function sulanga_get_gallery_images( $limit = -1 ) {
 function sulanga_amenities_list() {
   return array(
     array( 'label' => 'Cloth Rack',         'icon' => '<path d="M12 6a2 2 0 1 1 2 2"/><path d="M12 8 3.6 14.2A1 1 0 0 0 4.2 16h15.6a1 1 0 0 0 .6-1.8L12 8z"/>' ),
-    array( 'label' => 'Television',          'icon' => '<rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>' ),
+    array( 'label' => 'Satellite TV',        'icon' => '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="m7 8 5-5 5 5"/><path d="M9 23h6"/>' ),
     array( 'label' => 'Free WiFi',           'icon' => '<path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M12 19h.01"/>' ),
     array( 'label' => 'Private Bathroom',    'icon' => '<path d="M4 12V6a2 2 0 0 1 4 0"/><path d="M2 12h20v3a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z"/><path d="M7 20l-1 2M18 20l1 2"/>' ),
     array( 'label' => 'Electric Kettle',     'icon' => '<path d="M18 8h1a3 3 0 0 1 0 6h-1"/><path d="M4 8h14v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M7 2v2M11 2v2"/>' ),
-    array( 'label' => 'Mini Fridge',         'icon' => '<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 10h12M10 6v1M10 13v2"/>' ),
+    array( 'label' => 'Tea/Coffee Maker',    'icon' => '<path d="M18 8h1a3 3 0 0 1 0 6h-1"/><path d="M3 8h15v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 1c0 1-1 1-1 2s1 1 1 2M10 1c0 1-1 1-1 2s1 1 1 2"/>' ),
+    array( 'label' => 'Karaoke',             'icon' => '<rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/>' ),
     array( 'label' => 'Towels',              'icon' => '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14"/>' ),
     array( 'label' => 'Toilet Paper',        'icon' => '<ellipse cx="9" cy="8" rx="6" ry="3.5"/><path d="M3 8v7c0 1.9 2.7 3.5 6 3.5s6-1.6 6-3.5V8"/><path d="M15 11h4v8"/>' ),
     array( 'label' => 'Private Entrance',    'icon' => '<path d="M3 21h18"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M14 12h.01"/>' ),
     array( 'label' => 'Ironing Facilities',  'icon' => '<path d="M3 14a8 8 0 0 1 8-8h7a3 3 0 0 1 3 3v5z"/><path d="M3 14v3h18"/>' ),
-    array( 'label' => 'Socket Near the Bed', 'icon' => '<path d="M9 2v6M15 2v6"/><path d="M6 8h12v2a6 6 0 0 1-12 0z"/><path d="M12 16v6"/>' ),
   );
 }
 
@@ -217,7 +217,7 @@ function sulanga_render_amenities_carousel() {
     echo '<button type="button" class="am-arrow am-next" id="amNext" aria-label="Next image">&#8250;</button>';
     echo '<div class="am-dots" id="amDots"></div>';
   } else {
-    echo '<div class="am-track"><div class="am-slide"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Sulanga villa" /></div></div>';
+    echo '<div class="am-track"><div class="am-slide"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Sulaga villa" /></div></div>';
   }
   echo '</div>';
 }
